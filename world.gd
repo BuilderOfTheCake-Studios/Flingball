@@ -1,5 +1,7 @@
 extends Node3D
 
+# this is a test
+
 @export var world_sections: Array[PackedScene]
 
 @onready var player = $Player
