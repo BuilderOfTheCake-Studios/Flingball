@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgv3h1qvftfc5"
+path="res://.godot/imported/blockSnow.obj-a5003850f3f2c4a03ee6d08a1b01552c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blockSnow.obj-a5003850f3f2c4a03ee6d08a1b01552c.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/blockSnow.obj"
+dest_files=["res://.godot/imported/blockSnow.obj-a5003850f3f2c4a03ee6d08a1b01552c.mesh", "res://.godot/imported/blockSnow.obj-a5003850f3f2c4a03ee6d08a1b01552c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bx6c8tagh48ok"
+path="res://.godot/imported/bridgeHalf.obj-3b42e19e8665f95b85649d7f247264db.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bridgeHalf.obj-3b42e19e8665f95b85649d7f247264db.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/bridgeHalf.obj"
+dest_files=["res://.godot/imported/bridgeHalf.obj-3b42e19e8665f95b85649d7f247264db.mesh", "res://.godot/imported/bridgeHalf.obj-3b42e19e8665f95b85649d7f247264db.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

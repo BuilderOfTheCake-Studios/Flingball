@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dh1dx6gccsjgh"
+path="res://.godot/imported/coinGold.obj-98cbf2879aaa3308eb3bc6f9d8228584.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coinGold.obj-98cbf2879aaa3308eb3bc6f9d8228584.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/coinGold.obj"
+dest_files=["res://.godot/imported/coinGold.obj-98cbf2879aaa3308eb3bc6f9d8228584.mesh", "res://.godot/imported/coinGold.obj-98cbf2879aaa3308eb3bc6f9d8228584.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

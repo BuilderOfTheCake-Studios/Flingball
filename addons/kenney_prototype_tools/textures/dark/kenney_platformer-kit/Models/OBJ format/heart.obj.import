@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blmv44r4ftg5s"
+path="res://.godot/imported/heart.obj-ddafb92bfd0f13487701a01b893e0a64.mesh"
+
+[deps]
+
+files=["res://.godot/imported/heart.obj-ddafb92bfd0f13487701a01b893e0a64.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/heart.obj"
+dest_files=["res://.godot/imported/heart.obj-ddafb92bfd0f13487701a01b893e0a64.mesh", "res://.godot/imported/heart.obj-ddafb92bfd0f13487701a01b893e0a64.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

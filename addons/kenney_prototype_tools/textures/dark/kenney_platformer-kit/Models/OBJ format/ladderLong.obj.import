@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2amnae33rgc0"
+path="res://.godot/imported/ladderLong.obj-e986bc2af8eed1113ae4cd3d31a3d73f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ladderLong.obj-e986bc2af8eed1113ae4cd3d31a3d73f.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/ladderLong.obj"
+dest_files=["res://.godot/imported/ladderLong.obj-e986bc2af8eed1113ae4cd3d31a3d73f.mesh", "res://.godot/imported/ladderLong.obj-e986bc2af8eed1113ae4cd3d31a3d73f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

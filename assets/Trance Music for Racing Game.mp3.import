@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvx6p2ip7x0u7"
+path="res://.godot/imported/Trance Music for Racing Game.mp3-1d535bdc73aebb46ed0d80cb87345c58.mp3str"
+
+[deps]
+
+source_file="res://assets/Trance Music for Racing Game.mp3"
+dest_files=["res://.godot/imported/Trance Music for Racing Game.mp3-1d535bdc73aebb46ed0d80cb87345c58.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

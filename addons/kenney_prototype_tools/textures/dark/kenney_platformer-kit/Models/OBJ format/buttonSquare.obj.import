@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7yi60ko0xtpd"
+path="res://.godot/imported/buttonSquare.obj-e8467757011197a1eeee922dff5e5d0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/buttonSquare.obj-e8467757011197a1eeee922dff5e5d0c.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/buttonSquare.obj"
+dest_files=["res://.godot/imported/buttonSquare.obj-e8467757011197a1eeee922dff5e5d0c.mesh", "res://.godot/imported/buttonSquare.obj-e8467757011197a1eeee922dff5e5d0c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

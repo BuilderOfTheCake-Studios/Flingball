@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://nnyaakaambdw"
+path="res://.godot/imported/barrel.obj-f66095d2b9183ac9ea60a68cb2c12d36.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barrel.obj-f66095d2b9183ac9ea60a68cb2c12d36.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/barrel.obj"
+dest_files=["res://.godot/imported/barrel.obj-f66095d2b9183ac9ea60a68cb2c12d36.mesh", "res://.godot/imported/barrel.obj-f66095d2b9183ac9ea60a68cb2c12d36.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

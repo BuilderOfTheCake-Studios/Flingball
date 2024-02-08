@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gs7hphwbj40p"
+path="res://.godot/imported/block.obj-f521d9ea5ea07aeff2bd84c2ea990d6b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block.obj-f521d9ea5ea07aeff2bd84c2ea990d6b.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/block.obj"
+dest_files=["res://.godot/imported/block.obj-f521d9ea5ea07aeff2bd84c2ea990d6b.mesh", "res://.godot/imported/block.obj-f521d9ea5ea07aeff2bd84c2ea990d6b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

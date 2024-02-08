@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dejt1iwd0e3h"
+path="res://.godot/imported/hedgeCorner.obj-92c4547a384be958e278d751b372eb85.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hedgeCorner.obj-92c4547a384be958e278d751b372eb85.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/hedgeCorner.obj"
+dest_files=["res://.godot/imported/hedgeCorner.obj-92c4547a384be958e278d751b372eb85.mesh", "res://.godot/imported/hedgeCorner.obj-92c4547a384be958e278d751b372eb85.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

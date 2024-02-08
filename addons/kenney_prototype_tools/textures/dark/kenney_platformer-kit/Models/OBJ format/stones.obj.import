@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bntes8fsk6l8d"
+path="res://.godot/imported/stones.obj-0fcc2c65b337fc73c0630295778b0a09.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stones.obj-0fcc2c65b337fc73c0630295778b0a09.mesh"]
+
+source_file="res://addons/kenney_prototype_tools/textures/dark/kenney_platformer-kit/Models/OBJ format/stones.obj"
+dest_files=["res://.godot/imported/stones.obj-0fcc2c65b337fc73c0630295778b0a09.mesh", "res://.godot/imported/stones.obj-0fcc2c65b337fc73c0630295778b0a09.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
