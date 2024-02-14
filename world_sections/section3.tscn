@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://df38sgwbv1wvc"]
+[gd_scene load_steps=7 format=3 uid="uid://df38sgwbv1wvc"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_ycqhp"]
+[ext_resource type="PackedScene" uid="uid://du2xby7k36blq" path="res://entities/platform.tscn" id="2_mjl2d"]
+[ext_resource type="PackedScene" uid="uid://d6v85cl58yea" path="res://entities/bumper.tscn" id="3_napq5"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="4_kd4dm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh8m"]
 size = Vector3(0.984131, 1, 4.3688)
@@ -47,3 +50,18 @@ shape = SubResource("BoxShape3D_islqt")
 
 [node name="LinkMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.49688)
+
+[node name="Platform" parent="." instance=ExtResource("2_mjl2d")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.87775, 3.74731)
+
+[node name="Bumper" parent="." instance=ExtResource("3_napq5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.57179, 0.861751, 6.69099)
+
+[node name="Coin" parent="." instance=ExtResource("4_kd4dm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0058335, 1.07775, 3.75028)
+
+[node name="Coin2" parent="." instance=ExtResource("4_kd4dm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0058335, 1.07775, 4.4062)
+
+[node name="Coin3" parent="." instance=ExtResource("4_kd4dm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0058335, 1.07775, 3.08302)

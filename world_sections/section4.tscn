@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyel82ouwdy3d"]
+[gd_scene load_steps=6 format=3 uid="uid://cyel82ouwdy3d"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_mqagr"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_1k0nv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh8m"]
 size = Vector3(0.984131, 1, 4.3688)
@@ -54,3 +55,6 @@ shape = SubResource("BoxShape3D_islqt")
 
 [node name="LinkMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.49688)
+
+[node name="Coin" parent="." instance=ExtResource("2_1k0nv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0556345, 2.62778, 6.79089)

@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://de8tixeqdfnr1"]
+[gd_scene load_steps=7 format=3 uid="uid://de8tixeqdfnr1"]
 
 [ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_7dfel"]
+[ext_resource type="PackedScene" uid="uid://cv8w2nnxfb0qk" path="res://entities/spikes.tscn" id="2_ud0yv"]
+[ext_resource type="PackedScene" uid="uid://c8hhpsamnir4c" path="res://entities/piston.tscn" id="3_he4h6"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="4_x6sex"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh8m"]
 size = Vector3(0.984131, 1, 4.3688)
@@ -47,3 +50,30 @@ shape = SubResource("BoxShape3D_islqt")
 
 [node name="LinkMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.49688)
+
+[node name="Spikes" parent="." instance=ExtResource("2_ud0yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.83897, 0.662388, 2.01325)
+
+[node name="Spikes2" parent="." instance=ExtResource("2_ud0yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.8121, 0.662389, 5.51767)
+
+[node name="piston" parent="." instance=ExtResource("3_he4h6")]
+transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -2.22819, 1.14349, 6.24754)
+
+[node name="piston2" parent="." instance=ExtResource("3_he4h6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.09041, -0.1652, 3.75331)
+
+[node name="Coin" parent="." instance=ExtResource("4_x6sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14601, 1.39034, 3.85347)
+
+[node name="Coin2" parent="." instance=ExtResource("4_x6sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14601, 2.05132, 3.85347)
+
+[node name="Coin3" parent="." instance=ExtResource("4_x6sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14601, 2.67658, 3.85347)
+
+[node name="Coin4" parent="." instance=ExtResource("4_x6sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14601, 3.21652, 3.85347)
+
+[node name="Coin5" parent="." instance=ExtResource("4_x6sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14601, 3.76986, 3.85347)

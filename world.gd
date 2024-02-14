@@ -1,20 +1,30 @@
 extends Node3D
 
-# this is a test
-
 @export var world_sections: Array[PackedScene]
 
-@onready var player = $Player
-@onready var mouse_start_marker = $HUD/MouseStartMarker
-@onready var mouse_end_marker = $HUD/MouseEndMarker
-@onready var camera = $Camera3D
+# functional
+@onready var world_section_container = $WorldSectionContainer
 @onready var original_link_marker = $HubWorld/LinkMarker
 @onready var current_link_marker = $HubWorld/LinkMarker
 @onready var fling_timer = $FlingTimer
+@onready var death_reset_timer = $DeathResetTimer
+@onready var on_screen_notifier = $Player/VisibleOnScreenNotifier3D
+
+# objects
+@onready var player = $Player
+@onready var camera = $Camera3D
+
+# ui 
+@onready var mouse_start_marker = $HUD/MouseStartMarker
+@onready var mouse_end_marker = $HUD/MouseEndMarker
 @onready var fling_bar = $HUD/Control/FlingBar
-@onready var audio = $AudioStreamPlayer
 @onready var score_label = $HUD/Control/ScoreLabel
-@onready var world_section_container = $WorldSectionContainer
+@onready var off_screen_marker = $HUD/OffScreenMarker
+
+
+# audio
+@onready var audio = $Music
+@onready var spike_hit_audio = $SpikeHitAudio
 
 var game_state
 var tween
@@ -23,6 +33,9 @@ var can_fling = true
 var score = 0
 var original_player_position
 var original_camera_position
+var camera_speed = 3
+var show_off_screen_marker = false
+var off_screen_marker_padding = 35
 
 func _ready():
 	original_player_position = player.position
@@ -30,15 +43,17 @@ func _ready():
 	game_start()
 	game_state = "main_menu"
 	audio.stop()
-	for i in range(10):	
+	for i in range(5):	
 		generate_new_section()
+	var animation_player = player.get_node("AnimationPlayer")
+	animation_player.play("idle")
 
 func _process(delta):
 	if mouse_held:
 		mouse_end_marker.position = get_viewport().get_mouse_position()
 		
 	if game_state == "playing":	
-		camera.position.z += 3 * delta
+		camera.position.z += camera_speed * delta
 	
 	fling_bar.value = 1 - (fling_timer.time_left / fling_timer.wait_time)
 	
@@ -49,9 +64,24 @@ func _process(delta):
 			child.queue_free()
 			generate_new_section()
 			
+	# show off screen marker
+	off_screen_marker.visible = show_off_screen_marker
+	off_screen_marker.position = camera.unproject_position(player.global_position)
+	off_screen_marker.position.x = clamp(off_screen_marker.position.x, off_screen_marker_padding, get_viewport().get_visible_rect().size.x - off_screen_marker_padding)
+	off_screen_marker.position.y = clamp(off_screen_marker.position.y, off_screen_marker_padding, get_viewport().get_visible_rect().size.y - off_screen_marker_padding)
+	off_screen_marker.look_at(camera.unproject_position(player.global_position))
+	off_screen_marker.rotation_degrees += 90
+			
+	# move the camera faster and accumulate more points when ball is far ahead
+	#if player.position.z > camera.position.z + 4:
+		#score += player.position.z - (camera.position.z + 4)
+		#camera.position.z = player.position.z - 4
+			
+	# game over conditions
 	if player.position.y < -5:
+		$FallingAudio.play()
 		game_end()
-	if player.position.z < camera.position.z - 5 or player.position.z > camera.position.z + 15:
+	if player.position.z < camera.position.z - 5 or player.position.z > camera.position.z + 30:
 		game_end()
 
 func _input(event):
@@ -73,6 +103,7 @@ func _input(event):
 			
 			can_fling = false
 			fling_timer.start()
+			$FlingAudio.play()
 			
 			mouse_end_marker.position = event.position
 			mouse_held = false
@@ -91,19 +122,32 @@ func _input(event):
 			tween.tween_property(mouse_end_marker, "modulate:a", 0, 0.1)
 
 func generate_new_section():
-	var section = world_sections.pick_random()
-	var scene = section.instantiate()
-	scene.position = current_link_marker.global_position
-	current_link_marker = scene.get_node("LinkMarker")
-	world_section_container.add_child(scene)
+	#var section = world_sections.pick_random()
+	#var scene = section.instantiate()
+	#scene.position = current_link_marker.global_position
+	#current_link_marker = scene.get_node("LinkMarker")
+	#world_section_container.add_child(scene)
+	#
+	## set signals for entities
+	#for child in scene.get_children():
+		#if "Spikes" == child.name:
+			#child.player_hit.connect(_on_spikes_player_hit)
+	pass
 	
 func game_start():
+	print("GAME START")
+	player.state = "alive"
 	game_state = "playing"
 	audio.play()
 	score = 0
 	
 func game_end():
+	print("GAME END")
 	game_state = "main_menu"
+	player.state = "alive"
+	player.linear_damp = 0
+	var animation_player = player.get_node("AnimationPlayer")
+	animation_player.play("idle")
 	for child in world_section_container.get_children():
 		child.queue_free()
 	player.position = original_player_position
@@ -126,3 +170,21 @@ func _on_score_timer_timeout():
 	if game_state == "playing":
 		score += 0.1
 	draw_score_label()
+
+func _on_spikes_player_hit():
+	if player.state == "alive":
+		player.state = "dead"
+		$SpikeHitAudio.play()
+		var animation_player = player.get_node("AnimationPlayer")
+		var particles = player.get_node("Particles")
+		player.linear_damp = 10
+		particles.emitting = true
+		animation_player.play("die")
+		death_reset_timer.start()
+		death_reset_timer.timeout.connect(game_end)
+
+func _on_visible_on_screen_notifier_3d_screen_entered():
+	show_off_screen_marker = false
+
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	show_off_screen_marker = true

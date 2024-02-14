@@ -13,16 +13,38 @@ config_version=5
 config/name="Flingball"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
+file_logging/directional_shadow/soft_shadow_filter_quality=2
+file_logging/positional_shadow/soft_shadow_filter_quality=2
+file_logging/positional_shadow/atlas_quadrant_1_subdiv=2
+file_logging/positional_shadow/atlas_quadrant_0_subdiv=2
+file_logging/positional_shadow/atlas_quadrant_2_subdiv=3
+file_logging/positional_shadow/atlas_quadrant_3_subdiv=4
+file_logging/directional_shadow/size=4096
 
 [display]
 
 window/size/viewport_width=600
-window/size/viewport_height=900
+window/size/viewport_height=1100
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
+window/vsync/vsync_mode=2
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
+global_illumination/sdfgi/frames_to_update_lights=4
+environment/defaults/default_clear_color=Color(0.45098, 0.45098, 0.45098, 1)
+occlusion_culling/use_occlusion_culling=true
