@@ -43,7 +43,7 @@ func _ready():
 	game_start()
 	game_state = "main_menu"
 	audio.stop()
-	for i in range(10):	
+	for i in range(5):	
 		generate_new_section()
 	var animation_player = player.get_node("AnimationPlayer")
 	animation_player.play("idle")
@@ -130,7 +130,7 @@ func generate_new_section():
 	
 	# set signals for entities
 	for child in scene.get_children():
-		if "Spikes" == child.name:
+		if "Spikes" in child.name:
 			child.player_hit.connect(_on_spikes_player_hit)
 	pass
 	

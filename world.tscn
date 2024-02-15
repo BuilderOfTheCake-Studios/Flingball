@@ -1,19 +1,25 @@
-[gd_scene load_steps=19 format=3 uid="uid://p7lfcxnhf5f1"]
+[gd_scene load_steps=29 format=3 uid="uid://p7lfcxnhf5f1"]
 
 [ext_resource type="PackedScene" uid="uid://dso6moookllac" path="res://player.tscn" id="1_ur14s"]
 [ext_resource type="Script" path="res://world.gd" id="1_yvvro"]
-[ext_resource type="PackedScene" uid="uid://cbltd6stx12ex" path="res://world_sections/section_1.tscn" id="2_y1eah"]
-[ext_resource type="PackedScene" uid="uid://cfrhsaa47q5di" path="res://world_sections/section_2.tscn" id="3_1c655"]
+[ext_resource type="PackedScene" uid="uid://b271mpvhpi0" path="res://world_sections/section1.tscn" id="2_pmjrm"]
 [ext_resource type="Texture2D" uid="uid://bgidkcjpa6f88" path="res://addons/kenney_particle_pack/circle_01.png" id="3_qfkma"]
-[ext_resource type="PackedScene" uid="uid://b5ead0ivmwwga" path="res://world_sections/section_3.tscn" id="4_422sv"]
-[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="7_gju57"]
+[ext_resource type="PackedScene" uid="uid://de8tixeqdfnr1" path="res://world_sections/section2.tscn" id="3_t8lfd"]
+[ext_resource type="PackedScene" uid="uid://df38sgwbv1wvc" path="res://world_sections/section3.tscn" id="4_hrno3"]
+[ext_resource type="PackedScene" uid="uid://cyel82ouwdy3d" path="res://world_sections/section4.tscn" id="5_0ampn"]
+[ext_resource type="PackedScene" uid="uid://bit1gyobs5ghf" path="res://world_sections/section5.tscn" id="6_ajlcg"]
+[ext_resource type="PackedScene" uid="uid://hcpjsrisfb8f" path="res://world_sections/section6.tscn" id="7_cum1g"]
 [ext_resource type="FontFile" uid="uid://dm27yvic5org8" path="res://assets/TCM_____.TTF" id="7_mhd5s"]
 [ext_resource type="Texture2D" uid="uid://b60m80wythgvs" path="res://assets/arrow.svg" id="7_wye8p"]
+[ext_resource type="PackedScene" uid="uid://fjhlgnktpbl" path="res://world_sections/section7.tscn" id="8_focn4"]
 [ext_resource type="AudioStream" uid="uid://dvx6p2ip7x0u7" path="res://assets/Trance Music for Racing Game.mp3" id="9_no2iv"]
 [ext_resource type="Script" path="res://player.gd" id="9_ww8op"]
 [ext_resource type="AudioStream" uid="uid://cmc24tstd2yvo" path="res://assets/sizzle.wav" id="11_slnwq"]
 [ext_resource type="AudioStream" uid="uid://bgwy3r50pi0bj" path="res://assets/falling.wav" id="13_hw01f"]
 [ext_resource type="AudioStream" uid="uid://whqom74fq6bl" path="res://assets/fling.mp3" id="14_1yhek"]
+[ext_resource type="PackedScene" uid="uid://c8hhpsamnir4c" path="res://entities/piston.tscn" id="15_e3rou"]
+[ext_resource type="PackedScene" uid="uid://d6v85cl58yea" path="res://entities/bumper.tscn" id="16_ltxja"]
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="17_o2jsp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcqsf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,9 +36,21 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k0m74"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3wrsn"]
+size = Vector3(1, 1, 5.54254)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_50kw0"]
+size = Vector3(1.54675, 1, 2.43733)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1a4nn"]
+size = Vector3(8.05225, 1.3114, 8.00272)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q33eo"]
+size = Vector3(1, 1, 7.31947)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_yvvro")
-world_sections = Array[PackedScene]([ExtResource("2_y1eah"), ExtResource("3_1c655"), ExtResource("4_422sv")])
+world_sections = Array[PackedScene]([ExtResource("2_pmjrm"), ExtResource("3_t8lfd"), ExtResource("4_hrno3"), ExtResource("5_0ampn"), ExtResource("6_ajlcg"), ExtResource("7_cum1g"), ExtResource("8_focn4")])
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -86,7 +104,7 @@ text = "Score: 0"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40576, 0)
 script = ExtResource("9_ww8op")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Player"]
+[node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenNotifier3D" parent="Player"]
 aabb = AABB(-0.145542, -0.121197, -0.12335, 0.291084, 0.242394, 0.2467)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -98,26 +116,49 @@ light_angular_distance = 0.89
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -7.41387e-08, 4.6327e-08, 0, 0.529919, 0.848048, -8.74228e-08, 0.848048, -0.529919, 0, 6, -2.5)
+transform = Transform3D(-1, -8.7199e-08, -6.25049e-09, -4.03768e-08, 0.39726, 0.917706, -7.754e-08, 0.917706, -0.39726, 0, 7.50143, -2.58054)
 attributes = SubResource("CameraAttributesPractical_k0m74")
 doppler_tracking = 2
-fov = 90.0
-size = 0.1
-far = 100.0
 
 [node name="HubWorld" type="Node3D" parent="."]
 
-[node name="GridMap" type="GridMap" parent="HubWorld"]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25, 0)
-mesh_library = ExtResource("7_gju57")
-cell_size = Vector3(1, 0.5, 1)
-data = {
-"cells": PackedInt32Array(-4, 65532, 0, -4, 65533, 0, -4, 65534, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, -3, 65532, 0, -3, 65533, 0, -3, 65534, 0, -3, 65535, 0, -3, 0, 0, -3, 1, 0, -3, 2, 0, -3, 3, 0, -2, 65532, 0, -2, 65533, 0, -2, 65534, 0, -2, 65535, 0, -2, 0, 0, -2, 1, 0, -2, 2, 0, -1, 65532, 0, -1, 65533, 0, -1, 65534, 0, -1, 65535, 0, -1, 0, 0, -1, 1, 0, -1, 2, 0, -65536, 65532, 0, -65536, 65533, 0, -65536, 65534, 0, -65536, 65535, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65535, 65532, 0, -65535, 65533, 0, -65535, 65534, 0, -65535, 65535, 0, -65535, 0, 0, -65535, 1, 0, -65535, 2, 0, -65534, 65532, 0, -65534, 65533, 0, -65534, 65534, 0, -65534, 65535, 0, -65534, 0, 0, -65534, 1, 0, -65534, 2, 0, -65533, 65532, 0, -65533, 65533, 0, -65533, 65534, 0, -65533, 65535, 0, -65533, 0, 0, -65533, 1, 0, -65533, 2, 0, 65539, 3, 0, 65539, 2, 0, 65539, 1, 0, 65539, 0, 0, 65539, 65535, 0, 65539, 65534, 0, 65539, 65533, 0, 65539, 65532, 0, 65538, 65532, 0, 65537, 65532, 0, 65536, 65532, 0, 131071, 65532, 0, 131070, 65532, 0, 131069, 65532, 0, 131068, 65532, 0, 131068, 3, 0, 131068, 2, 0, 131068, 1, 0, 131068, 0, 0, 131068, 65535, 0, 131068, 65534, 0, 131068, 65533, 0, 196611, 3, 0, 196611, 2, 0, 196611, 1, 0, 196611, 0, 0, 196611, 65535, 0, 196611, 65534, 0, 196611, 65533, 0, 196611, 65532, 0, 262140, 65532, 0, 262141, 65532, 0, 262142, 65532, 0, 262143, 65532, 0, 196608, 65532, 0, 196609, 65532, 0, 196610, 65532, 0, 262140, 3, 0, 262140, 2, 0, 262140, 1, 0, 262140, 0, 0, 262140, 65535, 0, 262140, 65534, 0, 262140, 65533, 0, 327683, 3, 0, 327683, 2, 0, 327683, 1, 0, 327683, 0, 0, 327683, 65535, 0, 327683, 65534, 0, 327683, 65533, 0, 327683, 65532, 0, 327682, 65532, 0, 327681, 65532, 0, 327680, 65532, 0, 393215, 65532, 0, 393214, 65532, 0, 393213, 65532, 0, 393212, 65532, 0, 393212, 65533, 0, 393212, 65534, 0, 393212, 65535, 0, 393212, 0, 0, 393212, 1, 0, 393212, 2, 0, 393212, 3, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0)
-}
-metadata/_editor_floor_ = Vector3(0, -1, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="HubWorld"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73802, 0.884309, -0.496735)
+shape = SubResource("BoxShape3D_3wrsn")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46554, 0.884309, 3.50542)
+shape = SubResource("BoxShape3D_50kw0")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51756, 0.884309, 3.50542)
+shape = SubResource("BoxShape3D_50kw0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72403, 0.884309, -0.496735)
+shape = SubResource("BoxShape3D_3wrsn")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197907, -0.0226606, 0.733353)
+shape = SubResource("BoxShape3D_1a4nn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00140858, 0.891874, -3.67821)
+shape = SubResource("BoxShape3D_q33eo")
 
 [node name="LinkMarker" type="Marker3D" parent="HubWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.46053)
+
+[node name="piston" parent="HubWorld" instance=ExtResource("15_e3rou")]
+transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 1.14742, 1.17981, 3.86674)
+
+[node name="Bumper" parent="HubWorld" instance=ExtResource("16_ltxja")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.51002, 0.921045, 2.69633)
+
+[node name="Bumper2" parent="HubWorld" instance=ExtResource("16_ltxja")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.489981, 0.921045, -1.30367)
 
 [node name="WorldSectionContainer" type="Node3D" parent="."]
 
@@ -148,7 +189,16 @@ volume_db = -10.0
 stream = ExtResource("14_1yhek")
 volume_db = -10.0
 
-[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
-[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[node name="StartingGridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+mesh_library = ExtResource("17_o2jsp")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(131064, 0, 26, 131064, 1, 26, 131064, 2, 26, 131064, 3, 26, 131064, 4, 26, 131064, 5, 26, 131064, 6, 26, 131064, 7, 26, 131064, 8, 26, 131064, 9, 26, 131064, 10, 26, 131064, 11, 26, 131064, 12, 26, 131064, 13, 26, 131064, 14, 26, 131065, 0, 1048602, 131065, 1, 1048602, 131065, 2, 1048602, 131065, 3, 1048602, 131065, 11, 26, 131065, 12, 26, 131065, 13, 26, 131065, 14, 26, 65542, 0, 1048602, 65542, 1, 1048602, 65542, 2, 1048602, 65542, 3, 1048602, 65542, 11, 26, 65542, 12, 26, 65542, 13, 26, 65542, 14, 26, 65543, 0, 26, 65543, 1, 26, 65543, 2, 26, 65543, 3, 26, 65543, 4, 26, 65543, 5, 26, 65543, 6, 26, 65543, 7, 26, 65543, 8, 26, 65543, 9, 26, 65543, 10, 26, 65543, 11, 26, 65543, 12, 26, 65543, 13, 26, 65543, 14, 26, 393208, 0, 1048672, 393208, 8, 1048672, 393208, 9, 1048659, 393208, 12, 1048576, 327686, 13, 1048671, 327687, 1, 1048672, 327687, 5, 1048660, 327687, 12, 1048576, 65528, 0, 12, 65528, 1, 12, 65528, 2, 12, 65528, 3, 12, 65528, 4, 12, 65528, 5, 12, 65528, 6, 12, 65528, 7, 12, 65528, 8, 12, 65528, 9, 12, 65528, 10, 12, 65528, 11, 12, 65528, 12, 12, 65528, 13, 12, 65529, 0, 12, 65529, 1, 12, 65529, 2, 12, 65529, 3, 12, 65529, 4, 12, 65529, 5, 12, 65529, 6, 12, 65529, 7, 12, 65529, 8, 12, 65529, 9, 12, 65529, 10, 12, 65529, 11, 12, 65529, 12, 12, 65529, 13, 12, 65530, 0, 12, 65530, 1, 12, 65530, 2, 12, 65530, 3, 12, 65530, 4, 12, 65530, 5, 12, 65530, 6, 12, 65530, 7, 12, 65530, 8, 12, 65530, 9, 12, 65530, 10, 12, 65530, 11, 12, 65530, 12, 12, 65530, 13, 12, 65531, 0, 12, 65531, 1, 12, 65531, 2, 12, 65531, 3, 12, 65531, 4, 12, 65531, 5, 12, 65531, 6, 12, 65531, 7, 12, 65531, 8, 12, 65531, 9, 12, 65531, 10, 12, 65531, 11, 12, 65531, 12, 12, 65531, 13, 12, 65532, 0, 12, 65532, 1, 12, 65532, 2, 12, 65532, 3, 12, 65532, 4, 12, 65532, 5, 12, 65532, 6, 12, 65532, 7, 12, 65532, 8, 12, 65532, 9, 12, 65532, 10, 12, 65532, 11, 12, 65532, 12, 12, 65532, 13, 12, 65533, 0, 12, 65533, 1, 12, 65533, 2, 12, 65533, 3, 12, 65533, 4, 12, 65533, 5, 12, 65533, 6, 12, 65533, 7, 12, 65533, 8, 12, 65533, 9, 12, 65533, 10, 12, 65533, 11, 12, 65533, 12, 12, 65533, 13, 12, 65534, 0, 12, 65534, 1, 12, 65534, 2, 12, 65534, 3, 12, 65534, 4, 12, 65534, 5, 12, 65534, 6, 12, 65534, 7, 12, 65534, 8, 12, 65534, 9, 12, 65534, 10, 12, 65534, 11, 12, 65534, 12, 12, 65534, 13, 12, 65535, 0, 12, 65535, 1, 12, 65535, 2, 12, 65535, 3, 12, 65535, 4, 12, 65535, 5, 12, 65535, 6, 12, 65535, 7, 12, 65535, 8, 12, 65535, 9, 12, 65535, 10, 12, 65535, 11, 12, 65535, 12, 12, 65535, 13, 12, 0, 0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 12, 0, 6, 12, 0, 7, 12, 0, 8, 12, 0, 9, 12, 0, 10, 12, 0, 11, 12, 0, 12, 12, 0, 13, 12, 1, 0, 12, 1, 1, 12, 1, 2, 12, 1, 3, 12, 1, 4, 12, 1, 5, 12, 1, 6, 12, 1, 7, 12, 1, 8, 12, 1, 9, 12, 1, 10, 12, 1, 11, 12, 1, 12, 12, 1, 13, 12, 2, 0, 12, 2, 1, 12, 2, 2, 12, 2, 3, 12, 2, 4, 12, 2, 5, 12, 2, 6, 12, 2, 7, 12, 2, 8, 12, 2, 9, 12, 2, 10, 12, 2, 11, 12, 2, 12, 12, 2, 13, 12, 3, 0, 12, 3, 1, 12, 3, 2, 12, 3, 3, 12, 3, 4, 12, 3, 5, 12, 3, 6, 12, 3, 7, 12, 3, 8, 12, 3, 9, 12, 3, 10, 12, 3, 11, 12, 3, 12, 12, 3, 13, 12, 4, 0, 12, 4, 1, 12, 4, 2, 12, 4, 3, 12, 4, 4, 12, 4, 5, 12, 4, 6, 12, 4, 7, 12, 4, 8, 12, 4, 9, 12, 4, 10, 12, 4, 11, 12, 4, 12, 12, 4, 13, 12, 5, 0, 12, 5, 1, 12, 5, 2, 12, 5, 3, 12, 5, 4, 12, 5, 5, 12, 5, 6, 12, 5, 7, 12, 5, 8, 12, 5, 9, 12, 5, 10, 12, 5, 11, 12, 5, 12, 12, 5, 13, 12, 6, 0, 12, 6, 1, 12, 6, 2, 12, 6, 3, 12, 6, 4, 12, 6, 5, 12, 6, 6, 12, 6, 7, 12, 6, 8, 12, 6, 9, 12, 6, 10, 12, 6, 11, 12, 6, 12, 12, 6, 13, 12, 6, 14, 12, 5, 14, 12, 4, 14, 12, 3, 14, 12, 2, 14, 12, 1, 14, 12, 0, 14, 12, 65535, 14, 12, 65531, 14, 12, 65532, 14, 12, 65533, 14, 12, 65530, 14, 12, 65529, 14, 12, 65528, 14, 12, 7, 0, 12, 7, 1, 12, 7, 2, 12, 7, 3, 12, 7, 4, 12, 7, 5, 12, 7, 6, 12, 7, 7, 12, 7, 8, 12, 7, 9, 12, 7, 10, 12, 7, 11, 12, 7, 12, 12, 7, 13, 12, 7, 14, 12)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="timeout" from="FlingTimer" to="." method="_on_fling_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

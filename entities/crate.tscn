@@ -76,6 +76,7 @@ points = PackedVector3Array(0.613939, 1, 0.613939, 0.613939, 0.613939, 1, 1, 0.6
 [node name="Crate" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.8
 
 [node name="Cube" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
