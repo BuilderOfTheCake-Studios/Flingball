@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwp0ku3tn8cbe"
+path="res://.godot/imported/slab.obj-494e0815abb383031a775d5ffe83ae22.mesh"
+
+[deps]
+
+files=["res://.godot/imported/slab.obj-494e0815abb383031a775d5ffe83ae22.mesh"]
+
+source_file="res://assets/tileset/slab.obj"
+dest_files=["res://.godot/imported/slab.obj-494e0815abb383031a775d5ffe83ae22.mesh", "res://.godot/imported/slab.obj-494e0815abb383031a775d5ffe83ae22.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

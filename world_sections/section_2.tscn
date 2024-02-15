@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfrhsaa47q5di"]
+
+[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="1_8bhoq"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_l1blq"]
+
+[node name="Section2" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25, 0)
+mesh_library = ExtResource("1_8bhoq")
+cell_size = Vector3(1, 0.5, 1)
+data = {
+"cells": PackedInt32Array(-4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, -3, 0, 0, -3, 1, 0, -2, 0, 0, -2, 1, 0, -1, 0, 0, -1, 1, 0, -65536, 0, 0, -65536, 1, 0, -65535, 0, 0, -65535, 1, 0, -65534, 0, 0, -65534, 1, 0, -65534, 2, 0, -65534, 3, 0, -65533, 0, 0, -65533, 1, 0, -65533, 2, 0, -65533, 3, 0, -65533, 4, 0, -65534, 4, 0, -65536, 5, 0, -1, 5, 0, -2, 5, 0, -3, 5, 0, -4, 5, 0, -4, 4, 0, -3, 4, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, 131067, 5, 3, 131067, 4, 3, 131067, 3, 3, 131067, 2, 3, 131067, 1, 3, 131067, 0, 3, 65540, 5, 3, 65540, 4, 3, 65540, 3, 3, 65540, 2, 3, 65540, 1, 3, 65540, 0, 3, -3, 2, 0, -3, 3, 0, -65533, 6, 0, -65534, 6, 0, -65535, 6, 0, -65536, 6, 0, -1, 6, 0, -2, 6, 0, -3, 6, 0, -4, 6, 0, 65540, 6, 3, 131067, 6, 3, -65532, 0, 0, -65532, 1, 0, -65532, 2, 0, -65532, 3, 0, -65532, 4, 0, -65532, 5, 0, -65532, 6, 0, -5, 0, 0, -5, 1, 0, -5, 2, 0, -5, 3, 0, -5, 4, 0, -5, 5, 0, -5, 6, 0, -65535, 2, 0, -65535, 3, 0, -65535, 4, 0, -2, 2, 0, -2, 3, 0, -2, 4, 0, 131069, 3, 1048577, 65538, 3, 1048577)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="LinkMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.25)
+
+[node name="Coin" parent="." instance=ExtResource("2_l1blq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86777, 1.17614, 3.42319)
+
+[node name="Coin2" parent="." instance=ExtResource("2_l1blq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92501, 1.18352, 3.40843)

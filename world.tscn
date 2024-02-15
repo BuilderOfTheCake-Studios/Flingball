@@ -1,8 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://p7lfcxnhf5f1"]
+[gd_scene load_steps=19 format=3 uid="uid://p7lfcxnhf5f1"]
 
 [ext_resource type="PackedScene" uid="uid://dso6moookllac" path="res://player.tscn" id="1_ur14s"]
 [ext_resource type="Script" path="res://world.gd" id="1_yvvro"]
+[ext_resource type="PackedScene" uid="uid://cbltd6stx12ex" path="res://world_sections/section_1.tscn" id="2_y1eah"]
+[ext_resource type="PackedScene" uid="uid://cfrhsaa47q5di" path="res://world_sections/section_2.tscn" id="3_1c655"]
 [ext_resource type="Texture2D" uid="uid://bgidkcjpa6f88" path="res://addons/kenney_particle_pack/circle_01.png" id="3_qfkma"]
+[ext_resource type="PackedScene" uid="uid://b5ead0ivmwwga" path="res://world_sections/section_3.tscn" id="4_422sv"]
+[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="7_gju57"]
 [ext_resource type="FontFile" uid="uid://dm27yvic5org8" path="res://assets/TCM_____.TTF" id="7_mhd5s"]
 [ext_resource type="Texture2D" uid="uid://b60m80wythgvs" path="res://assets/arrow.svg" id="7_wye8p"]
 [ext_resource type="AudioStream" uid="uid://dvx6p2ip7x0u7" path="res://assets/Trance Music for Racing Game.mp3" id="9_no2iv"]
@@ -10,8 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://cmc24tstd2yvo" path="res://assets/sizzle.wav" id="11_slnwq"]
 [ext_resource type="AudioStream" uid="uid://bgwy3r50pi0bj" path="res://assets/falling.wav" id="13_hw01f"]
 [ext_resource type="AudioStream" uid="uid://whqom74fq6bl" path="res://assets/fling.mp3" id="14_1yhek"]
-[ext_resource type="PackedScene" uid="uid://c8hhpsamnir4c" path="res://entities/piston.tscn" id="15_e3rou"]
-[ext_resource type="PackedScene" uid="uid://d6v85cl58yea" path="res://entities/bumper.tscn" id="16_ltxja"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcqsf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,20 +30,9 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k0m74"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3wrsn"]
-size = Vector3(1, 1, 5.54254)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_50kw0"]
-size = Vector3(1.54675, 1, 2.43733)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1a4nn"]
-size = Vector3(8.05225, 1.3114, 8.00272)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_q33eo"]
-size = Vector3(1, 1, 7.31947)
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_yvvro")
+world_sections = Array[PackedScene]([ExtResource("2_y1eah"), ExtResource("3_1c655"), ExtResource("4_422sv")])
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -95,7 +86,7 @@ text = "Score: 0"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40576, 0)
 script = ExtResource("9_ww8op")
 
-[node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenNotifier3D" parent="Player"]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Player"]
 aabb = AABB(-0.145542, -0.121197, -0.12335, 0.291084, 0.242394, 0.2467)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -107,49 +98,26 @@ light_angular_distance = 0.89
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -8.7199e-08, -6.25049e-09, -4.03768e-08, 0.39726, 0.917706, -7.754e-08, 0.917706, -0.39726, 0, 6.50143, -2.58054)
+transform = Transform3D(-1, -7.41387e-08, 4.6327e-08, 0, 0.529919, 0.848048, -8.74228e-08, 0.848048, -0.529919, 0, 6, -2.5)
 attributes = SubResource("CameraAttributesPractical_k0m74")
 doppler_tracking = 2
+fov = 90.0
+size = 0.1
+far = 100.0
 
 [node name="HubWorld" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HubWorld"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73802, 0.884309, -0.496735)
-shape = SubResource("BoxShape3D_3wrsn")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46554, 0.884309, 3.50542)
-shape = SubResource("BoxShape3D_50kw0")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51756, 0.884309, 3.50542)
-shape = SubResource("BoxShape3D_50kw0")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72403, 0.884309, -0.496735)
-shape = SubResource("BoxShape3D_3wrsn")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197907, -0.0226606, 0.733353)
-shape = SubResource("BoxShape3D_1a4nn")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00140858, 0.891874, -3.67821)
-shape = SubResource("BoxShape3D_q33eo")
+[node name="GridMap" type="GridMap" parent="HubWorld"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25, 0)
+mesh_library = ExtResource("7_gju57")
+cell_size = Vector3(1, 0.5, 1)
+data = {
+"cells": PackedInt32Array(-4, 65532, 0, -4, 65533, 0, -4, 65534, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, -3, 65532, 0, -3, 65533, 0, -3, 65534, 0, -3, 65535, 0, -3, 0, 0, -3, 1, 0, -3, 2, 0, -3, 3, 0, -2, 65532, 0, -2, 65533, 0, -2, 65534, 0, -2, 65535, 0, -2, 0, 0, -2, 1, 0, -2, 2, 0, -1, 65532, 0, -1, 65533, 0, -1, 65534, 0, -1, 65535, 0, -1, 0, 0, -1, 1, 0, -1, 2, 0, -65536, 65532, 0, -65536, 65533, 0, -65536, 65534, 0, -65536, 65535, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65535, 65532, 0, -65535, 65533, 0, -65535, 65534, 0, -65535, 65535, 0, -65535, 0, 0, -65535, 1, 0, -65535, 2, 0, -65534, 65532, 0, -65534, 65533, 0, -65534, 65534, 0, -65534, 65535, 0, -65534, 0, 0, -65534, 1, 0, -65534, 2, 0, -65533, 65532, 0, -65533, 65533, 0, -65533, 65534, 0, -65533, 65535, 0, -65533, 0, 0, -65533, 1, 0, -65533, 2, 0, 65539, 3, 0, 65539, 2, 0, 65539, 1, 0, 65539, 0, 0, 65539, 65535, 0, 65539, 65534, 0, 65539, 65533, 0, 65539, 65532, 0, 65538, 65532, 0, 65537, 65532, 0, 65536, 65532, 0, 131071, 65532, 0, 131070, 65532, 0, 131069, 65532, 0, 131068, 65532, 0, 131068, 3, 0, 131068, 2, 0, 131068, 1, 0, 131068, 0, 0, 131068, 65535, 0, 131068, 65534, 0, 131068, 65533, 0, 196611, 3, 0, 196611, 2, 0, 196611, 1, 0, 196611, 0, 0, 196611, 65535, 0, 196611, 65534, 0, 196611, 65533, 0, 196611, 65532, 0, 262140, 65532, 0, 262141, 65532, 0, 262142, 65532, 0, 262143, 65532, 0, 196608, 65532, 0, 196609, 65532, 0, 196610, 65532, 0, 262140, 3, 0, 262140, 2, 0, 262140, 1, 0, 262140, 0, 0, 262140, 65535, 0, 262140, 65534, 0, 262140, 65533, 0, 327683, 3, 0, 327683, 2, 0, 327683, 1, 0, 327683, 0, 0, 327683, 65535, 0, 327683, 65534, 0, 327683, 65533, 0, 327683, 65532, 0, 327682, 65532, 0, 327681, 65532, 0, 327680, 65532, 0, 393215, 65532, 0, 393214, 65532, 0, 393213, 65532, 0, 393212, 65532, 0, 393212, 65533, 0, 393212, 65534, 0, 393212, 65535, 0, 393212, 0, 0, 393212, 1, 0, 393212, 2, 0, 393212, 3, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="LinkMarker" type="Marker3D" parent="HubWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.46053)
-
-[node name="piston" parent="HubWorld" instance=ExtResource("15_e3rou")]
-transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 1.14742, 1.17981, 3.86674)
-
-[node name="Bumper" parent="HubWorld" instance=ExtResource("16_ltxja")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.51002, 0.921045, 2.69633)
-
-[node name="Bumper2" parent="HubWorld" instance=ExtResource("16_ltxja")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.489981, 0.921045, -1.30367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="WorldSectionContainer" type="Node3D" parent="."]
 
@@ -180,7 +148,7 @@ volume_db = -10.0
 stream = ExtResource("14_1yhek")
 volume_db = -10.0
 
-[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
-[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="timeout" from="FlingTimer" to="." method="_on_fling_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

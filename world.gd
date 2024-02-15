@@ -43,7 +43,7 @@ func _ready():
 	game_start()
 	game_state = "main_menu"
 	audio.stop()
-	for i in range(5):	
+	for i in range(10):	
 		generate_new_section()
 	var animation_player = player.get_node("AnimationPlayer")
 	animation_player.play("idle")
@@ -122,16 +122,16 @@ func _input(event):
 			tween.tween_property(mouse_end_marker, "modulate:a", 0, 0.1)
 
 func generate_new_section():
-	#var section = world_sections.pick_random()
-	#var scene = section.instantiate()
-	#scene.position = current_link_marker.global_position
-	#current_link_marker = scene.get_node("LinkMarker")
-	#world_section_container.add_child(scene)
-	#
-	## set signals for entities
-	#for child in scene.get_children():
-		#if "Spikes" == child.name:
-			#child.player_hit.connect(_on_spikes_player_hit)
+	var section = world_sections.pick_random()
+	var scene = section.instantiate()
+	scene.position = current_link_marker.global_position
+	current_link_marker = scene.get_node("LinkMarker")
+	world_section_container.add_child(scene)
+	
+	# set signals for entities
+	for child in scene.get_children():
+		if "Spikes" == child.name:
+			child.player_hit.connect(_on_spikes_player_hit)
 	pass
 	
 func game_start():

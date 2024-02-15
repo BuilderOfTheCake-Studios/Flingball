@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbltd6stx12ex"]
+
+[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="1_tklcv"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_kp83m"]
+
+[node name="Section1" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.25, 0)
+mesh_library = ExtResource("1_tklcv")
+cell_size = Vector3(1, 0.5, 1)
+data = {
+"cells": PackedInt32Array(-4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, -3, 0, 0, -3, 1, 0, -3, 2, 0, -3, 3, 0, -2, 0, 0, -2, 1, 0, -2, 2, 0, -2, 3, 0, -1, 0, 0, -1, 1, 0, -1, 2, 0, -1, 3, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65536, 3, 0, -65535, 0, 0, -65535, 1, 0, -65535, 2, 0, -65535, 3, 0, -65534, 0, 0, -65534, 1, 0, -65534, 2, 0, -65534, 3, 0, -65533, 0, 0, -65533, 1, 0, -65533, 2, 0, -65533, 3, 0, 65537, 3, 1, 65537, 2, 1, 131070, 3, 655361, 131070, 2, 655361, 196607, 3, 655361, 196607, 2, 655361, 131072, 3, 1, 131072, 2, 1, 131071, 2, 3, 65536, 2, 3, 65536, 3, 3, 131071, 3, 3, -65533, 4, 0, -65534, 4, 0, -65535, 4, 0, -65536, 4, 0, -65536, 5, 0, -1, 5, 0, -2, 5, 0, -3, 5, 0, -4, 5, 0, -4, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, 131067, 5, 3, 131067, 4, 3, 131067, 3, 3, 131067, 2, 3, 131067, 1, 3, 131067, 0, 3, 65540, 5, 3, 65540, 4, 3, 65540, 3, 3, 65540, 2, 3, 65540, 1, 3, 65540, 0, 3)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="LinkMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+
+[node name="Coin" parent="." instance=ExtResource("2_kp83m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0123148, 1.55634, 2.25)
+
+[node name="Coin2" parent="." instance=ExtResource("2_kp83m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.851714, 1.13664, 2.25)
+
+[node name="Coin3" parent="." instance=ExtResource("2_kp83m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68642, 0.8125, 2.25)
+
+[node name="Coin4" parent="." instance=ExtResource("2_kp83m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.805323, 1.15984, 2.25)
+
+[node name="Coin5" parent="." instance=ExtResource("2_kp83m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61772, 0.8125, 2.25)
