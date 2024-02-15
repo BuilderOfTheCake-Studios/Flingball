@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c8hhpsamnir4c"]
 
-[ext_resource type="Script" path="res://entities/piston.gd" id="1_1uxwu"]
+[ext_resource type="Script" path="res://scripts/piston.gd" id="1_1uxwu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_afp1h"]
 points = PackedVector3Array(-1, -0.800457, -0.800117, -1, -0.800457, 0.799922, -1, 0.799366, -0.800117, -0.800117, -0.800457, -1, -0.213391, -5.69828, -0.213391, -0.800117, -0.800457, 1, -1, 0.799366, 0.799922, -0.213391, -5.69828, 0.213195, -0.800117, 1, -0.800117, -0.800117, 0.799366, -1, 0.799922, -0.800457, -1, 0.213195, -5.69828, -0.213391, 0.799922, -0.800457, 1, -0.800117, 0.799366, 1, -0.800117, 1, 0.799922, 0.213195, -5.69828, 0.213195, 0.799922, 1, -0.800117, 0.799922, 0.799366, -1, 1, -0.800457, -0.800117, 1, -0.800457, 0.799922, 0.799922, 0.799366, 1, 0.799922, 1, 0.799922, 1, 0.799366, -0.800117, 1, 0.799366, 0.799922)
@@ -189,6 +189,13 @@ shape = SubResource("BoxShape3D_xy5pr")
 libraries = {
 "": SubResource("AnimationLibrary_dqs2b")
 }
+autoplay = "RESET"
+
+[node name="PushTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="PushTimer" to="." method="_on_push_timer_timeout"]

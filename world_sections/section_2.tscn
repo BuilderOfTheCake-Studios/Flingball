@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfrhsaa47q5di"]
 
-[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="1_8bhoq"]
+[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/models/custom_tiles.tres" id="1_8bhoq"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_l1blq"]
 
 [node name="Section2" type="Node3D"]

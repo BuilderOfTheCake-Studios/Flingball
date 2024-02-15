@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5ead0ivmwwga"]
 
-[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/custom_tiles.tres" id="1_strac"]
+[ext_resource type="MeshLibrary" uid="uid://7q4lk1x0ttk5" path="res://assets/models/custom_tiles.tres" id="1_strac"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_2pk3y"]
 [ext_resource type="PackedScene" uid="uid://d6v85cl58yea" path="res://entities/bumper.tscn" id="2_xfrux"]
 

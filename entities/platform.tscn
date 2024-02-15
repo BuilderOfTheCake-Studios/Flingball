@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://du2xby7k36blq"]
 
-[ext_resource type="Script" path="res://entities/platform.gd" id="1_dx7gr"]
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_dx7gr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5knh"]
 resource_name = "Platform"
