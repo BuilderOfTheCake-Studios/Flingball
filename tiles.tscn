@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://dhi83eec3b04h"]
+[gd_scene load_steps=134 format=3 uid="uid://dhi83eec3b04h"]
 
 [ext_resource type="PackedScene" uid="uid://bvvyla34gf0k2" path="res://addons/kenney_platform_models/arrow.glb" id="1_glkon"]
 [ext_resource type="PackedScene" uid="uid://0euedvne0ckh" path="res://addons/kenney_platform_models/arrows.glb" id="2_1lqrr"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dcx4kxalykiab" path="res://addons/kenney_platform_models/blockCurve.glb" id="9_n0r8j"]
 [ext_resource type="PackedScene" uid="uid://cdyfc3aftimut" path="res://addons/kenney_platform_models/blockCurveHalf.glb" id="10_pu82s"]
 [ext_resource type="PackedScene" uid="uid://dqsnhdqbs3pxs" path="res://addons/kenney_platform_models/blockCurveLow.glb" id="11_51g0k"]
-[ext_resource type="PackedScene" uid="uid://c1yr4g5go5up" path="res://addons/kenney_platform_models/blockDirt.glb" id="12_xtg0x"]
 [ext_resource type="PackedScene" uid="uid://x04mcsfk8gfr" path="res://addons/kenney_platform_models/blockDirtRampHalf.glb" id="15_c7dyy"]
 [ext_resource type="PackedScene" uid="uid://drni4ok4hr4fw" path="res://addons/kenney_platform_models/blockEnd.glb" id="16_fa5k8"]
 [ext_resource type="PackedScene" uid="uid://orfkf3dl4egi" path="res://addons/kenney_platform_models/blockHalf.glb" id="17_n7xik"]
@@ -109,6 +108,47 @@
 [ext_resource type="PackedScene" uid="uid://pv20bqc0ukq4" path="res://addons/kenney_platform_models/treePineSmallSnow.glb" id="112_hinwo"]
 [ext_resource type="PackedScene" uid="uid://fhup3j20wjyd" path="res://addons/kenney_platform_models/treePineSnow.glb" id="113_wetvp"]
 [ext_resource type="PackedScene" uid="uid://bjgxml8pd8683" path="res://addons/kenney_platform_models/treeSnow.glb" id="114_vthsx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f15go"]
+resource_name = "dirt"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.878431, 0.576471, 0.372549, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8dgkg"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1, 1.00001),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 2, 0, 4, 0, 5, 0, 5, 0, 0, 0, 2, 0, 7, 0, 6, 0, 5, 0, 5, 0, 4, 0, 7, 0, 7, 0, 4, 0, 2, 0, 2, 0, 3, 0, 7, 0, 1, 0, 0, 0, 5, 0, 5, 0, 6, 0, 1, 0, 6, 0, 7, 0, 3, 0, 3, 0, 1, 0, 6, 0),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x7ldg"]
+resource_name = "blockDirt_Mesh blockDirt"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1, 1.00001),
+"attribute_data": PackedByteArray(246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 193, 246, 122, 25, 194, 246, 122, 157, 65, 0, 0, 128, 63, 246, 122, 157, 65, 246, 122, 25, 194, 246, 122, 157, 65, 246, 122, 149, 193, 246, 122, 157, 65, 246, 122, 165, 65, 246, 122, 157, 193, 246, 122, 149, 193, 246, 122, 157, 193, 246, 122, 165, 65, 246, 122, 157, 65, 246, 122, 25, 194, 246, 122, 157, 65, 0, 0, 128, 63, 246, 122, 157, 193, 246, 122, 25, 194, 246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 65, 0, 0, 128, 63, 246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 65, 246, 122, 25, 194, 246, 122, 157, 193, 246, 122, 25, 194, 246, 122, 157, 65, 0, 0, 128, 63, 246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 65, 246, 122, 25, 194, 246, 122, 157, 193, 246, 122, 25, 194, 246, 122, 157, 193, 246, 122, 149, 193, 246, 122, 157, 65, 246, 122, 149, 193, 246, 122, 157, 193, 246, 122, 165, 65, 246, 122, 157, 65, 246, 122, 165, 65),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 6, 0, 4, 0, 5, 0, 5, 0, 7, 0, 6, 0, 10, 0, 8, 0, 9, 0, 9, 0, 11, 0, 10, 0, 14, 0, 12, 0, 13, 0, 13, 0, 15, 0, 14, 0, 18, 0, 16, 0, 17, 0, 17, 0, 19, 0, 18, 0, 22, 0, 20, 0, 21, 0, 21, 0, 23, 0, 22, 0),
+"material": SubResource("StandardMaterial3D_f15go"),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 191, 255, 127, 0, 0, 0, 0, 255, 191, 255, 127, 0, 0, 0, 0, 255, 191, 255, 127, 0, 0, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 255, 255, 255, 255, 191, 255, 127, 255, 255, 255, 255, 255, 191, 255, 127, 255, 255, 255, 255, 255, 191, 255, 127, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8dgkg")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4yy2q"]
+points = PackedVector3Array(0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4h3x"]
 resource_name = "dirt"
@@ -405,10 +445,19 @@ visible = false
 [node name="blockCurveLow" parent="." instance=ExtResource("11_51g0k")]
 visible = false
 
-[node name="blockDirt" parent="." instance=ExtResource("12_xtg0x")]
-visible = false
+[node name="blockDirt" type="Node3D" parent="."]
+
+[node name="blockDirt2" type="MeshInstance3D" parent="blockDirt"]
+mesh = SubResource("ArrayMesh_x7ldg")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="blockDirt/blockDirt2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blockDirt/blockDirt2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4yy2q")
 
 [node name="blockDirtHalf" type="Node3D" parent="."]
+visible = false
 
 [node name="blockDirtHalf2" type="MeshInstance3D" parent="blockDirtHalf"]
 mesh = SubResource("ArrayMesh_ryhtk")

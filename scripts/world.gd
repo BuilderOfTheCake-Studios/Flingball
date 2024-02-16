@@ -58,6 +58,7 @@ var off_screen_marker_padding = 35
 
 
 func _ready():
+	load_all_resources()
 	original_player_position = player.position
 	original_camera_position = camera.position
 	game_start()
@@ -81,6 +82,12 @@ func _process(delta):
 	if game_state == "playing":	
 		camera.position.z += camera_speed * delta
 		camera_speed = min(camera_speed + camera_acceleration * delta, camera_max_speed)
+		
+		# set player trail
+		var total_velocity = abs(player.linear_velocity.x) + abs(player.linear_velocity.y) + abs(player.linear_velocity.z)
+		var trail_threshold = 10
+		var player_trail = player.get_node("Trail3D")
+		player_trail.material_override.albedo_color.a = min(1, total_velocity / trail_threshold)
 	
 	fling_bar.value = 1 - (fling_timer.time_left / fling_timer.wait_time)
 	
@@ -143,6 +150,17 @@ func _input(event):
 			tween = get_tree().create_tween()
 			tween.tween_property(mouse_start_marker, "modulate:a", 0, 0.1)
 			tween.tween_property(mouse_end_marker, "modulate:a", 0, 0.1)
+			
+func load_all_resources():
+	return
+	print("Loading all resources")
+	for section in world_sections:
+		var scene = section.instantiate()
+		world_section_container.add_child(scene)
+	for child in world_section_container.get_children():
+		child.queue_free()
+	_on_spikes_player_hit()
+	print("Loading finished")
 
 func generate_new_section():
 	var section = world_sections.pick_random()
@@ -154,8 +172,7 @@ func generate_new_section():
 	
 	if len(previous_world_sections) > previous_world_section_cap:
 		previous_world_sections.pop_front()
-	
-	print("SECTION NAME:", section)
+		
 	var scene = section.instantiate()
 	scene.position = current_link_marker.global_position
 	current_link_marker = scene.get_node("LinkMarker")
@@ -192,6 +209,8 @@ func game_end():
 	player.angular_velocity = Vector3.ZERO
 	camera.position = original_camera_position
 	audio.stop()
+	var player_trail = player.get_node("Trail3D")
+	player_trail.material_override.albedo_color.a = 0
 	
 	# generate new map
 	previous_world_sections = []

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dso6moookllac"]
+[gd_scene load_steps=20 format=3 uid="uid://dso6moookllac"]
 
 [ext_resource type="Material" uid="uid://ccgkll0d0n38v" path="res://addons/kenney_prototype_tools/materials/orange/material_09.tres" id="1_pn1ht"]
 [ext_resource type="Texture2D" uid="uid://bmqmxslnl4w8t" path="res://addons/kenney_particle_pack/star_04.png" id="2_dsj8v"]
+[ext_resource type="Script" path="res://scripts/trail3D.gd" id="3_1brf8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phumj"]
 friction = 0.2
@@ -211,6 +212,26 @@ material = SubResource("StandardMaterial3D_47m8q")
 size = Vector2(0.5, 0.5)
 orientation = 2
 
+[sub_resource type="Gradient" id="Gradient_pnfky"]
+offsets = PackedFloat32Array(0.487298, 1)
+colors = PackedColorArray(1, 0.380392, 0, 0, 1, 0.45, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sl45d"]
+gradient = SubResource("Gradient_pnfky")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu6u4"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_sl45d")
+
+[sub_resource type="Curve" id="Curve_8l258"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.866568, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_phumj")
 
@@ -240,3 +261,13 @@ randomness = 0.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_o87we")
 draw_pass_1 = SubResource("PlaneMesh_2k25m")
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.44482, 0)
+material_override = SubResource("StandardMaterial3D_mu6u4")
+script = ExtResource("3_1brf8")
+distance = 0.05
+segments = 25
+lifetime = 1.0
+base_width = 0.3
+width_profile = SubResource("Curve_8l258")
