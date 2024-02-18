@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b80510k4a2let"
-path="res://.godot/imported/TCM_____.TTF-31c2794c90cdb89c5158a35a0c2b0573.fontdata"
+uid="uid://dk21odt60u27f"
+path="res://.godot/imported/BAHNSCHRIFT.TTF-94ade5daedeef459017193a7e4a2de01.fontdata"
 
 [deps]
 
-source_file="res://assets/TCM_____.TTF"
-dest_files=["res://.godot/imported/TCM_____.TTF-31c2794c90cdb89c5158a35a0c2b0573.fontdata"]
+source_file="res://assets/BAHNSCHRIFT.TTF"
+dest_files=["res://.godot/imported/BAHNSCHRIFT.TTF-94ade5daedeef459017193a7e4a2de01.fontdata"]
 
 [params]
 

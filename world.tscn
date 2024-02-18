@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://p7lfcxnhf5f1"]
+[gd_scene load_steps=44 format=3 uid="uid://p7lfcxnhf5f1"]
 
 [ext_resource type="PackedScene" uid="uid://dso6moookllac" path="res://player.tscn" id="1_ur14s"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_yvvro"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cyel82ouwdy3d" path="res://world_sections/section4.tscn" id="5_0ampn"]
 [ext_resource type="PackedScene" uid="uid://bit1gyobs5ghf" path="res://world_sections/section5.tscn" id="6_ajlcg"]
 [ext_resource type="PackedScene" uid="uid://hcpjsrisfb8f" path="res://world_sections/section6.tscn" id="7_cum1g"]
-[ext_resource type="FontFile" uid="uid://dm27yvic5org8" path="res://assets/TCM_____.TTF" id="7_mhd5s"]
+[ext_resource type="FontFile" uid="uid://b80510k4a2let" path="res://assets/TCM_____.TTF" id="7_mhd5s"]
 [ext_resource type="Texture2D" uid="uid://b60m80wythgvs" path="res://assets/images/arrow.svg" id="7_wye8p"]
 [ext_resource type="PackedScene" uid="uid://fjhlgnktpbl" path="res://world_sections/section7.tscn" id="8_focn4"]
 [ext_resource type="AudioStream" uid="uid://dvx6p2ip7x0u7" path="res://assets/sounds/Trance Music for Racing Game.mp3" id="9_no2iv"]
@@ -17,7 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://b5tono3be24uq" path="res://assets/images/coin_render.png" id="12_c85um"]
 [ext_resource type="AudioStream" uid="uid://bgwy3r50pi0bj" path="res://assets/sounds/falling.wav" id="13_hw01f"]
 [ext_resource type="Texture2D" uid="uid://b8t33brgm0t4x" path="res://assets/images/Illustration7.png" id="13_nocdx"]
+[ext_resource type="FontFile" uid="uid://cq00mtjjkrfaw" path="res://BAHNSCHRIFT.TTF" id="13_p5bpo"]
 [ext_resource type="AudioStream" uid="uid://whqom74fq6bl" path="res://assets/sounds/fling.mp3" id="14_1yhek"]
+[ext_resource type="StyleBox" uid="uid://qvskclsryic6" path="res://assets/materials/button.tres" id="15_42mo4"]
+[ext_resource type="StyleBox" uid="uid://y754yoxhvf4f" path="res://assets/materials/button_pressed.tres" id="16_krg8k"]
+[ext_resource type="Texture2D" uid="uid://cbag127pcke1e" path="res://assets/images/the_fling_shop.png" id="17_gl3la"]
 [ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="17_o2jsp"]
 
 [sub_resource type="Theme" id="Theme_iypux"]
@@ -92,6 +96,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShopButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, 975)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SettingsButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(306, 975)]
+}
 
 [sub_resource type="Animation" id="Animation_5mdic"]
 resource_name = "fade in"
@@ -155,6 +183,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShopButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.189465, 1),
+"update": 0,
+"values": [Vector2(-297, 1120), Vector2(29, 975)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SettingsButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.189465, 1),
+"update": 0,
+"values": [Vector2(622, 1118), Vector2(306, 975)]
+}
 
 [sub_resource type="Animation" id="Animation_cao52"]
 resource_name = "slide out"
@@ -183,6 +235,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(26, 89), Vector2(-555, 47)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShopButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2.92817, 1),
+"update": 0,
+"values": [Vector2(29, 975), Vector2(-385, 864)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingsButton:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2.92817, 1),
+"update": 0,
+"values": [Vector2(306, 975), Vector2(698, 862)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vn1hj"]
 _data = {
@@ -190,6 +266,12 @@ _data = {
 "fade in": SubResource("Animation_5mdic"),
 "slide out": SubResource("Animation_cao52")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbii2"]
+bg_color = Color(0.968627, 0.878431, 0.823529, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7owtl"]
+texture = ExtResource("17_gl3la")
 
 [sub_resource type="GDScript" id="GDScript_jev11"]
 script/source = "extends RigidBody3D
@@ -221,11 +303,22 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k0m74"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3wrsn"]
-size = Vector3(1, 1, 5.54254)
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbqr0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrg2r"]
+resource_name = "Neon"
+cull_mode = 2
+albedo_color = Color(0, 0.905882, 0.854902, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.0427658, 1, 0.994893, 1)
+emission_energy_multiplier = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_50kw0"]
 size = Vector3(1.54675, 1, 2.43733)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3wrsn"]
+size = Vector3(1, 1, 5.54254)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1a4nn"]
 size = Vector3(8.05225, 1.3114, 8.00272)
@@ -332,9 +425,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -274.0
+offset_left = 26.0
 offset_top = 89.0
-offset_right = 274.0
+offset_right = 574.0
 offset_bottom = 339.999
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vfarg")
@@ -344,9 +437,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 38.0
+offset_left = 338.0
 offset_top = 287.0
-offset_right = 300.0
+offset_right = 600.0
 offset_bottom = 342.0
 grow_horizontal = 2
 rotation = 0.107279
@@ -360,6 +453,97 @@ libraries = {
 "": SubResource("AnimationLibrary_vn1hj")
 }
 autoplay = "RESET"
+
+[node name="ShopButton" type="Button" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 975.0
+offset_right = 290.0
+offset_bottom = 1068.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_focus_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_fonts/font = ExtResource("13_p5bpo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_42mo4")
+theme_override_styles/hover = ExtResource("16_krg8k")
+theme_override_styles/pressed = ExtResource("16_krg8k")
+theme_override_styles/focus = ExtResource("15_42mo4")
+text = "Shop"
+
+[node name="SettingsButton" type="Button" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 306.0
+offset_top = 975.0
+offset_right = 567.0
+offset_bottom = 1068.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_colors/font_focus_color = Color(1, 0.517647, 0.168627, 1)
+theme_override_fonts/font = ExtResource("13_p5bpo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_42mo4")
+theme_override_styles/hover = ExtResource("16_krg8k")
+theme_override_styles/pressed = ExtResource("16_krg8k")
+theme_override_styles/focus = ExtResource("16_krg8k")
+text = "Settings"
+
+[node name="Shop" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="Shop"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundPanel" type="Panel" parent="Shop/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hbii2")
+
+[node name="TitlePanel" type="Panel" parent="Shop/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 22.0
+offset_right = 273.0
+offset_bottom = 139.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7owtl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 67.0
+offset_bottom = 62.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/Control/ScrollContainer"]
+layout_mode = 2
+
+[node name="Settings" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_ur14s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40576, 0)
@@ -384,24 +568,30 @@ far = 100.0
 
 [node name="HubWorld" type="Node3D" parent="."]
 
+[node name="StartLine" type="MeshInstance3D" parent="HubWorld"]
+transform = Transform3D(3.43945, 0, 0, 0, 1, 0, 0, 0, 0.0473511, 0, 0.627012, 1.40421)
+visible = false
+mesh = SubResource("PlaneMesh_nbqr0")
+surface_material_override/0 = SubResource("StandardMaterial3D_lrg2r")
+
 [node name="StartingGridMap" type="GridMap" parent="HubWorld"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 mesh_library = ExtResource("17_o2jsp")
 cell_size = Vector3(0.5, 0.25, 0.5)
 data = {
-"cells": PackedInt32Array(131064, 0, 26, 131064, 1, 26, 131064, 2, 26, 131064, 3, 26, 131064, 4, 26, 131064, 5, 26, 131064, 6, 26, 131064, 7, 26, 131064, 8, 26, 131064, 9, 26, 131064, 10, 26, 131064, 11, 26, 131064, 12, 26, 131064, 13, 26, 131064, 14, 26, 131065, 0, 1048602, 131065, 1, 1048602, 131065, 2, 1048602, 131065, 3, 1048602, 131065, 11, 26, 131065, 12, 26, 131065, 13, 26, 131065, 14, 26, 65542, 0, 1048602, 65542, 1, 1048602, 65542, 2, 1048602, 65542, 3, 1048602, 65542, 11, 26, 65542, 12, 26, 65542, 13, 26, 65542, 14, 26, 65543, 0, 26, 65543, 1, 26, 65543, 2, 26, 65543, 3, 26, 65543, 4, 26, 65543, 5, 26, 65543, 6, 26, 65543, 7, 26, 65543, 8, 26, 65543, 9, 26, 65543, 10, 26, 65543, 11, 26, 65543, 12, 26, 65543, 13, 26, 65543, 14, 26, 65528, 0, 12, 65528, 1, 12, 65528, 2, 12, 65528, 3, 12, 65528, 4, 12, 65528, 5, 12, 65528, 6, 12, 65528, 7, 12, 65528, 8, 12, 65528, 9, 12, 65528, 10, 12, 65528, 11, 12, 65528, 12, 12, 65528, 13, 12, 65529, 0, 12, 65529, 1, 12, 65529, 2, 12, 65529, 3, 12, 65529, 4, 12, 65529, 5, 12, 65529, 6, 12, 65529, 7, 12, 65529, 8, 12, 65529, 9, 12, 65529, 10, 12, 65529, 11, 12, 65529, 12, 12, 65529, 13, 12, 65530, 0, 12, 65530, 1, 12, 65530, 2, 12, 65530, 3, 12, 65530, 4, 12, 65530, 5, 12, 65530, 6, 12, 65530, 7, 12, 65530, 8, 12, 65530, 9, 12, 65530, 10, 12, 65530, 11, 12, 65530, 12, 12, 65530, 13, 12, 65531, 0, 12, 65531, 1, 12, 65531, 2, 12, 65531, 3, 12, 65531, 4, 12, 65531, 5, 12, 65531, 6, 12, 65531, 7, 12, 65531, 8, 12, 65531, 9, 12, 65531, 10, 12, 65531, 11, 12, 65531, 12, 12, 65531, 13, 12, 65532, 0, 12, 65532, 1, 12, 65532, 2, 12, 65532, 3, 12, 65532, 4, 12, 65532, 5, 12, 65532, 6, 12, 65532, 7, 12, 65532, 8, 12, 65532, 9, 12, 65532, 10, 12, 65532, 11, 12, 65532, 12, 12, 65532, 13, 12, 65533, 0, 12, 65533, 1, 12, 65533, 2, 12, 65533, 3, 12, 65533, 4, 12, 65533, 5, 12, 65533, 6, 12, 65533, 7, 12, 65533, 8, 12, 65533, 9, 12, 65533, 10, 12, 65533, 11, 12, 65533, 12, 12, 65533, 13, 12, 65534, 0, 12, 65534, 1, 12, 65534, 2, 12, 65534, 3, 12, 65534, 4, 12, 65534, 5, 12, 65534, 6, 12, 65534, 7, 12, 65534, 8, 12, 65534, 9, 12, 65534, 10, 12, 65534, 11, 12, 65534, 12, 12, 65534, 13, 12, 65535, 0, 12, 65535, 1, 12, 65535, 2, 12, 65535, 3, 12, 65535, 4, 12, 65535, 5, 12, 65535, 6, 12, 65535, 7, 12, 65535, 8, 12, 65535, 9, 12, 65535, 10, 12, 65535, 11, 12, 65535, 12, 12, 65535, 13, 12, 0, 0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 12, 0, 6, 12, 0, 7, 12, 0, 8, 12, 0, 9, 12, 0, 10, 12, 0, 11, 12, 0, 12, 12, 0, 13, 12, 1, 0, 12, 1, 1, 12, 1, 2, 12, 1, 3, 12, 1, 4, 12, 1, 5, 12, 1, 6, 12, 1, 7, 12, 1, 8, 12, 1, 9, 12, 1, 10, 12, 1, 11, 12, 1, 12, 12, 1, 13, 12, 2, 0, 12, 2, 1, 12, 2, 2, 12, 2, 3, 12, 2, 4, 12, 2, 5, 12, 2, 6, 12, 2, 7, 12, 2, 8, 12, 2, 9, 12, 2, 10, 12, 2, 11, 12, 2, 12, 12, 2, 13, 12, 3, 0, 12, 3, 1, 12, 3, 2, 12, 3, 3, 12, 3, 4, 12, 3, 5, 12, 3, 6, 12, 3, 7, 12, 3, 8, 12, 3, 9, 12, 3, 10, 12, 3, 11, 12, 3, 12, 12, 3, 13, 12, 4, 0, 12, 4, 1, 12, 4, 2, 12, 4, 3, 12, 4, 4, 12, 4, 5, 12, 4, 6, 12, 4, 7, 12, 4, 8, 12, 4, 9, 12, 4, 10, 12, 4, 11, 12, 4, 12, 12, 4, 13, 12, 5, 0, 12, 5, 1, 12, 5, 2, 12, 5, 3, 12, 5, 4, 12, 5, 5, 12, 5, 6, 12, 5, 7, 12, 5, 8, 12, 5, 9, 12, 5, 10, 12, 5, 11, 12, 5, 12, 12, 5, 13, 12, 6, 0, 12, 6, 1, 12, 6, 2, 12, 6, 3, 12, 6, 4, 12, 6, 5, 12, 6, 6, 12, 6, 7, 12, 6, 8, 12, 6, 9, 12, 6, 10, 12, 6, 11, 12, 6, 12, 12, 6, 13, 12, 6, 14, 12, 5, 14, 12, 4, 14, 12, 3, 14, 12, 2, 14, 12, 1, 14, 12, 0, 14, 12, 65535, 14, 12, 65531, 14, 12, 65532, 14, 12, 65533, 14, 12, 65530, 14, 12, 65529, 14, 12, 65528, 14, 12, 7, 0, 12, 7, 1, 12, 7, 2, 12, 7, 3, 12, 7, 4, 12, 7, 5, 12, 7, 6, 12, 7, 7, 12, 7, 8, 12, 7, 9, 12, 7, 10, 12, 7, 11, 12, 7, 12, 12, 7, 13, 12, 7, 14, 12, 131064, 65535, 26, 131065, 65535, 26, 131064, 65534, 26, 131065, 65534, 26, 131066, 65534, 26, 131067, 65534, 26, 131068, 65534, 26, 131069, 65534, 26, 131070, 65534, 26, 131071, 65534, 26, 65536, 65534, 26, 65537, 65534, 26, 65538, 65534, 26, 65539, 65534, 26, 65540, 65534, 26, 65541, 65534, 26, 65542, 65535, 26, 65543, 65535, 26, 65543, 65534, 26, 65542, 65534, 26)
+"cells": PackedInt32Array(131064, 0, 26, 131064, 1, 26, 131064, 2, 26, 131064, 3, 26, 131064, 4, 26, 131064, 5, 26, 131064, 6, 26, 131064, 7, 26, 131064, 8, 26, 131064, 9, 26, 131064, 10, 26, 131064, 11, 26, 131064, 12, 26, 131064, 13, 26, 131064, 14, 26, 131065, 11, 26, 131065, 12, 26, 131065, 13, 26, 131065, 14, 26, 65542, 11, 26, 65542, 12, 26, 65542, 13, 26, 65542, 14, 26, 65543, 0, 26, 65543, 1, 26, 65543, 2, 26, 65543, 3, 26, 65543, 4, 26, 65543, 5, 26, 65543, 6, 26, 65543, 7, 26, 65543, 8, 26, 65543, 9, 26, 65543, 10, 26, 65543, 11, 26, 65543, 12, 26, 65543, 13, 26, 65543, 14, 26, 65528, 0, 12, 65528, 1, 12, 65528, 2, 12, 65528, 3, 12, 65528, 4, 12, 65528, 5, 12, 65528, 6, 12, 65528, 7, 12, 65528, 8, 12, 65528, 9, 12, 65528, 10, 12, 65528, 11, 12, 65528, 12, 12, 65528, 13, 12, 65529, 0, 12, 65529, 1, 12, 65529, 2, 12, 65529, 3, 12, 65529, 4, 12, 65529, 5, 12, 65529, 6, 12, 65529, 7, 12, 65529, 8, 12, 65529, 9, 12, 65529, 10, 12, 65529, 11, 12, 65529, 12, 12, 65529, 13, 12, 65530, 0, 12, 65530, 1, 12, 65530, 2, 12, 65530, 3, 12, 65530, 4, 12, 65530, 5, 12, 65530, 6, 12, 65530, 7, 12, 65530, 8, 12, 65530, 9, 12, 65530, 10, 12, 65530, 11, 12, 65530, 12, 12, 65530, 13, 12, 65531, 0, 12, 65531, 1, 12, 65531, 2, 12, 65531, 3, 12, 65531, 4, 12, 65531, 5, 12, 65531, 6, 12, 65531, 7, 12, 65531, 8, 12, 65531, 9, 12, 65531, 10, 12, 65531, 11, 12, 65531, 12, 12, 65531, 13, 12, 65532, 0, 12, 65532, 1, 12, 65532, 2, 12, 65532, 3, 12, 65532, 4, 12, 65532, 5, 12, 65532, 6, 12, 65532, 7, 12, 65532, 8, 12, 65532, 9, 12, 65532, 10, 12, 65532, 11, 12, 65532, 12, 12, 65532, 13, 12, 65533, 0, 12, 65533, 1, 12, 65533, 2, 12, 65533, 3, 12, 65533, 4, 12, 65533, 5, 12, 65533, 6, 12, 65533, 7, 12, 65533, 8, 12, 65533, 9, 12, 65533, 10, 12, 65533, 11, 12, 65533, 12, 12, 65533, 13, 12, 65534, 0, 12, 65534, 1, 12, 65534, 2, 12, 65534, 3, 12, 65534, 4, 12, 65534, 5, 12, 65534, 6, 12, 65534, 7, 12, 65534, 8, 12, 65534, 9, 12, 65534, 10, 12, 65534, 11, 12, 65534, 12, 12, 65534, 13, 12, 65535, 0, 12, 65535, 1, 12, 65535, 2, 12, 65535, 3, 12, 65535, 4, 12, 65535, 5, 12, 65535, 6, 12, 65535, 7, 12, 65535, 8, 12, 65535, 9, 12, 65535, 10, 12, 65535, 11, 12, 65535, 12, 12, 65535, 13, 12, 0, 0, 12, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 12, 0, 6, 12, 0, 7, 12, 0, 8, 12, 0, 9, 12, 0, 10, 12, 0, 11, 12, 0, 12, 12, 0, 13, 12, 1, 0, 12, 1, 1, 12, 1, 2, 12, 1, 3, 12, 1, 4, 12, 1, 5, 12, 1, 6, 12, 1, 7, 12, 1, 8, 12, 1, 9, 12, 1, 10, 12, 1, 11, 12, 1, 12, 12, 1, 13, 12, 2, 0, 12, 2, 1, 12, 2, 2, 12, 2, 3, 12, 2, 4, 12, 2, 5, 12, 2, 6, 12, 2, 7, 12, 2, 8, 12, 2, 9, 12, 2, 10, 12, 2, 11, 12, 2, 12, 12, 2, 13, 12, 3, 0, 12, 3, 1, 12, 3, 2, 12, 3, 3, 12, 3, 4, 12, 3, 5, 12, 3, 6, 12, 3, 7, 12, 3, 8, 12, 3, 9, 12, 3, 10, 12, 3, 11, 12, 3, 12, 12, 3, 13, 12, 4, 0, 12, 4, 1, 12, 4, 2, 12, 4, 3, 12, 4, 4, 12, 4, 5, 12, 4, 6, 12, 4, 7, 12, 4, 8, 12, 4, 9, 12, 4, 10, 12, 4, 11, 12, 4, 12, 12, 4, 13, 12, 5, 0, 12, 5, 1, 12, 5, 2, 12, 5, 3, 12, 5, 4, 12, 5, 5, 12, 5, 6, 12, 5, 7, 12, 5, 8, 12, 5, 9, 12, 5, 10, 12, 5, 11, 12, 5, 12, 12, 5, 13, 12, 6, 0, 12, 6, 1, 12, 6, 2, 12, 6, 3, 12, 6, 4, 12, 6, 5, 12, 6, 6, 12, 6, 7, 12, 6, 8, 12, 6, 9, 12, 6, 10, 12, 6, 11, 12, 6, 12, 12, 6, 13, 12, 6, 14, 12, 5, 14, 12, 4, 14, 12, 3, 14, 12, 2, 14, 12, 1, 14, 12, 0, 14, 12, 65535, 14, 12, 65531, 14, 12, 65532, 14, 12, 65533, 14, 12, 65530, 14, 12, 65529, 14, 12, 65528, 14, 12, 7, 0, 12, 7, 1, 12, 7, 2, 12, 7, 3, 12, 7, 4, 12, 7, 5, 12, 7, 6, 12, 7, 7, 12, 7, 8, 12, 7, 9, 12, 7, 10, 12, 7, 11, 12, 7, 12, 12, 7, 13, 12, 7, 14, 12, 131064, 65535, 26, 131064, 65534, 26, 131065, 65534, 26, 131066, 65534, 26, 131067, 65534, 26, 131068, 65534, 26, 131069, 65534, 26, 131070, 65534, 26, 131071, 65534, 26, 65536, 65534, 26, 65537, 65534, 26, 65538, 65534, 26, 65539, 65534, 26, 65540, 65534, 26, 65541, 65534, 26, 65543, 65535, 26, 65543, 65534, 26, 65542, 65534, 26)
 }
-metadata/_editor_floor_ = Vector3(0, 5, 0)
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="HubWorld"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73802, 0.884309, -0.496735)
-shape = SubResource("BoxShape3D_3wrsn")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46554, 0.884309, 3.50542)
 shape = SubResource("BoxShape3D_50kw0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73802, 0.884309, -0.496735)
+shape = SubResource("BoxShape3D_3wrsn")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="HubWorld/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51756, 0.884309, 3.50542)
@@ -451,6 +641,8 @@ volume_db = -10.0
 stream = ExtResource("14_1yhek")
 volume_db = -10.0
 
+[connection signal="button_down" from="HUD/Control/ShopButton" to="." method="_on_shop_button_button_down"]
+[connection signal="button_down" from="HUD/Control/SettingsButton" to="." method="_on_settings_button_button_down"]
 [connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="timeout" from="FlingTimer" to="." method="_on_fling_timer_timeout"]

@@ -1,18 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://b67u8uekt6tjo"]
 
+[ext_resource type="Material" uid="uid://chyb6ei8hmihy" path="res://assets/materials/neon.tres" id="1_tmpdi"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esro5"]
 resource_name = "Block"
 cull_mode = 2
 albedo_color = Color(0.429893, 0.457438, 0.55614, 1)
 roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qrbv"]
-resource_name = "Neon"
-cull_mode = 2
-albedo_color = Color(0, 0.906332, 0.853574, 1)
-roughness = 0.5
-emission_enabled = true
-emission = Color(0.0427658, 1, 0.994893, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t286b"]
 _surfaces = [{
@@ -60,7 +54,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 48,
 "index_data": PackedByteArray(26, 0, 3, 0, 24, 0, 26, 0, 1, 0, 3, 0, 19, 0, 31, 0, 17, 0, 19, 0, 29, 0, 31, 0, 6, 0, 14, 0, 4, 0, 6, 0, 12, 0, 14, 0, 11, 0, 22, 0, 9, 0, 11, 0, 20, 0, 22, 0, 0, 0, 5, 0, 2, 0, 0, 0, 7, 0, 5, 0, 8, 0, 13, 0, 10, 0, 8, 0, 15, 0, 13, 0, 16, 0, 21, 0, 18, 0, 16, 0, 23, 0, 21, 0, 25, 0, 28, 0, 27, 0, 25, 0, 30, 0, 28, 0),
-"material": SubResource("StandardMaterial3D_2qrbv"),
+"material": ExtResource("1_tmpdi"),
 "name": "Neon",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),

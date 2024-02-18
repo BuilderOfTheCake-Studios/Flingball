@@ -14,6 +14,7 @@ extends Node3D
 @onready var player = $Player
 @onready var camera = $Camera3D
 @onready var directional_light = $DirectionalLight3D
+@onready var start_line = $HubWorld/StartLine
 
 # ui 
 @onready var mouse_start_marker = $HUD/MouseStartMarker
@@ -285,3 +286,11 @@ func load_high_score():
 		var content = file.get_as_text()
 		return int(content)
 	return 0
+
+
+func _on_shop_button_button_down():
+	pass # Replace with function body.
+
+
+func _on_settings_button_button_down():
+	pass # Replace with function body.
