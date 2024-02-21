@@ -4,7 +4,6 @@
 
 [resource]
 vertex_color_is_srgb = true
-albedo_color = Color(1, 0.501961, 0, 1)
 albedo_texture = ExtResource("1_fcptu")
 emission_enabled = true
 uv2_triplanar = true

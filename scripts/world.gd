@@ -59,7 +59,6 @@ var camera_speed = camera_start_speed
 var show_off_screen_marker = false
 var off_screen_marker_padding = 35
 
-
 func _ready():
 	load_all_resources()
 	original_player_position = player.position
@@ -276,7 +275,7 @@ func update_labels():
 	score_label.text = "%.1f" % score
 	high_score_label.text = "High: " +  "%.1f" % high_score
 	
-func save_coins():
+func save_coins(coins=coins):
 	var file = FileAccess.open("user://coins.dat", FileAccess.WRITE)
 	file.store_string(JSON.stringify(coins))
 	
