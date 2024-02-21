@@ -27,6 +27,8 @@ extends Node3D
 @onready var title_panel = $HUD/Control/TitlePanel
 @onready var instruction_label = $HUD/Control/InstructionLabel
 @onready var title_animation_player = $HUD/Control/TitleAnimationPlayer
+@onready var shop = $Shop
+@onready var shop_animation_player = $Shop/Control/ShopAnimationPlayer
 
 # audio
 @onready var audio = $Music
@@ -67,12 +69,13 @@ func _ready():
 	audio.stop()
 	for i in range(10):	
 		generate_new_section()
-	var animation_player = player.get_node("AnimationPlayer")
+	var animation_player = player.current_animation_player
 	animation_player.play("idle")
 	coins = load_coins()
 	high_score = load_high_score()
 	update_labels()
 	title_animation_player.play("fade in")
+	shop.visible = false
 
 func _process(delta):
 	directional_light.global_position = camera.global_position
@@ -117,6 +120,14 @@ func _process(delta):
 		game_end()
 	if player.position.z < camera.position.z - 5 or player.position.z > camera.position.z + 30:
 		game_end()
+		
+	# make the mouse indicators invisible when in the stop
+	if game_state == "shop":
+		mouse_start_marker.visible = false
+		mouse_end_marker.visible = false
+	else:
+		mouse_start_marker.visible = true
+		mouse_end_marker.visible = true
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -129,7 +140,7 @@ func _input(event):
 			
 			mouse_start_marker.modulate.a = 1
 			mouse_end_marker.modulate.a = 1
-		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed and can_fling and mouse_held:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed and can_fling and mouse_held and game_state != "shop":
 			if game_state == "main_menu":
 				game_start()
 			
@@ -201,7 +212,7 @@ func game_end():
 	game_state = "main_menu"
 	player.state = "alive"
 	player.linear_damp = 0
-	var animation_player = player.get_node("AnimationPlayer")
+	var animation_player = player.current_animation_player
 	animation_player.play("idle")
 	for child in world_section_container.get_children():
 		child.queue_free()
@@ -241,7 +252,7 @@ func _on_spikes_player_hit():
 	if player.state == "alive":
 		player.state = "dead"
 		$SpikeHitAudio.play()
-		var animation_player = player.get_node("AnimationPlayer")
+		var animation_player = player.current_animation_player
 		var particles = player.get_node("Particles")
 		player.linear_damp = 10
 		particles.emitting = true
@@ -289,8 +300,18 @@ func load_high_score():
 
 
 func _on_shop_button_button_down():
-	pass # Replace with function body.
-
+	game_state = "shop"
+	shop.visible = true
+	title_animation_player.play("slide out")
+	shop_animation_player.play("fly in")
 
 func _on_settings_button_button_down():
 	pass # Replace with function body.
+
+
+func _on_back_button_button_down():
+	title_animation_player.play("fade in")
+	shop_animation_player.play("slide out")
+
+func _on_back_button_button_up():
+	game_state = "main_menu"

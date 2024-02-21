@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://p7lfcxnhf5f1"]
+[gd_scene load_steps=49 format=3 uid="uid://p7lfcxnhf5f1"]
 
 [ext_resource type="PackedScene" uid="uid://dso6moookllac" path="res://player.tscn" id="1_ur14s"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_yvvro"]
@@ -19,20 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://b8t33brgm0t4x" path="res://assets/images/Illustration7.png" id="13_nocdx"]
 [ext_resource type="FontFile" uid="uid://cq00mtjjkrfaw" path="res://BAHNSCHRIFT.TTF" id="13_p5bpo"]
 [ext_resource type="AudioStream" uid="uid://whqom74fq6bl" path="res://assets/sounds/fling.mp3" id="14_1yhek"]
-[ext_resource type="StyleBox" uid="uid://qvskclsryic6" path="res://assets/materials/button.tres" id="15_42mo4"]
 [ext_resource type="StyleBox" uid="uid://y754yoxhvf4f" path="res://assets/materials/button_pressed.tres" id="16_krg8k"]
 [ext_resource type="Texture2D" uid="uid://cbag127pcke1e" path="res://assets/images/the_fling_shop.png" id="17_gl3la"]
 [ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="17_o2jsp"]
-
-[sub_resource type="Theme" id="Theme_iypux"]
-default_font = ExtResource("7_mhd5s")
-default_font_size = 50
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5exa"]
-texture = ExtResource("12_c85um")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfarg"]
-texture = ExtResource("13_nocdx")
+[ext_resource type="Texture2D" uid="uid://dga6danwou3qx" path="res://assets/images/arrow_left.svg" id="18_hxe5q"]
+[ext_resource type="PackedScene" uid="uid://58epkwyg8nca" path="res://shop_item.tscn" id="19_snh6r"]
 
 [sub_resource type="Animation" id="Animation_vsh30"]
 length = 0.001
@@ -267,26 +258,138 @@ _data = {
 "slide out": SubResource("Animation_cao52")
 }
 
+[sub_resource type="Theme" id="Theme_iypux"]
+default_font = ExtResource("7_mhd5s")
+default_font_size = 50
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5exa"]
+texture = ExtResource("12_c85um")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfarg"]
+texture = ExtResource("13_nocdx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwx1t"]
+bg_color = Color(1, 0.94902, 0.921569, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.501961, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_6fi86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sbnna"]
+resource_name = "fly in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(0, 1670), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tdkwi"]
+resource_name = "slide out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(3.24901, 1),
+"update": 0,
+"values": [Vector2(0.04, 0), Vector2(0.04, -2000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjdg2"]
+_data = {
+"RESET": SubResource("Animation_6fi86"),
+"fly in": SubResource("Animation_sbnna"),
+"slide out": SubResource("Animation_tdkwi")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbii2"]
 bg_color = Color(0.968627, 0.878431, 0.823529, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7owtl"]
 texture = ExtResource("17_gl3la")
-
-[sub_resource type="GDScript" id="GDScript_jev11"]
-script/source = "extends RigidBody3D
-
-var state = \"alive\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcqsf"]
 ground_bottom_color = Color(0.133333, 0.180392, 0.227451, 1)
@@ -353,6 +456,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="HUD/Control"]
+libraries = {
+"": SubResource("AnimationLibrary_vn1hj")
+}
+autoplay = "RESET"
 
 [node name="FlingBar" type="ProgressBar" parent="HUD/Control"]
 layout_mode = 1
@@ -425,9 +534,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 26.0
+offset_left = -274.0
 offset_top = 89.0
-offset_right = 574.0
+offset_right = 274.0
 offset_bottom = 339.999
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vfarg")
@@ -437,9 +546,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 338.0
+offset_left = 38.0
 offset_top = 287.0
-offset_right = 600.0
+offset_right = 300.0
 offset_bottom = 342.0
 grow_horizontal = 2
 rotation = 0.107279
@@ -448,21 +557,15 @@ theme_override_fonts/font = ExtResource("7_mhd5s")
 theme_override_font_sizes/font_size = 35
 text = "Fling to start!"
 
-[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="HUD/Control"]
-libraries = {
-"": SubResource("AnimationLibrary_vn1hj")
-}
-autoplay = "RESET"
-
 [node name="ShopButton" type="Button" parent="HUD/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 29.0
-offset_top = 975.0
+offset_top = -125.0
 offset_right = 290.0
-offset_bottom = 1068.0
+offset_bottom = -31.9995
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.517647, 0.168627, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.517647, 0.168627, 1)
@@ -470,10 +573,10 @@ theme_override_colors/font_hover_color = Color(1, 0.517647, 0.168627, 1)
 theme_override_colors/font_focus_color = Color(1, 0.517647, 0.168627, 1)
 theme_override_fonts/font = ExtResource("13_p5bpo")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("15_42mo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fwx1t")
 theme_override_styles/hover = ExtResource("16_krg8k")
 theme_override_styles/pressed = ExtResource("16_krg8k")
-theme_override_styles/focus = ExtResource("15_42mo4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fwx1t")
 text = "Shop"
 
 [node name="SettingsButton" type="Button" parent="HUD/Control"]
@@ -483,10 +586,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 306.0
-offset_top = 975.0
-offset_right = 567.0
-offset_bottom = 1068.0
+offset_left = -294.0
+offset_top = -125.0
+offset_right = -33.0
+offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.517647, 0.168627, 1)
@@ -495,14 +598,13 @@ theme_override_colors/font_hover_color = Color(1, 0.517647, 0.168627, 1)
 theme_override_colors/font_focus_color = Color(1, 0.517647, 0.168627, 1)
 theme_override_fonts/font = ExtResource("13_p5bpo")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("15_42mo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fwx1t")
 theme_override_styles/hover = ExtResource("16_krg8k")
 theme_override_styles/pressed = ExtResource("16_krg8k")
 theme_override_styles/focus = ExtResource("16_krg8k")
 text = "Settings"
 
 [node name="Shop" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Shop"]
 layout_mode = 3
@@ -511,6 +613,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShopAnimationPlayer" type="AnimationPlayer" parent="Shop/Control"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_xjdg2")
+}
 
 [node name="BackgroundPanel" type="Panel" parent="Shop/Control"]
 layout_mode = 1
@@ -527,29 +637,54 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -273.0
-offset_top = 22.0
+offset_top = 40.0
 offset_right = 273.0
-offset_bottom = 139.0
+offset_bottom = 157.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7owtl")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop/Control"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 22.0
-offset_right = 67.0
+[node name="BackButton" type="Button" parent="Shop/Control"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 60.0
 offset_bottom = 62.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fwx1t")
+theme_override_styles/hover = ExtResource("16_krg8k")
+theme_override_styles/pressed = ExtResource("16_krg8k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fwx1t")
+icon = ExtResource("18_hxe5q")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 162.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Shop/Control/ScrollContainer"]
+layout_mode = 2
+
+[node name="ShopItem2" parent="Shop/Control/ScrollContainer/VBoxContainer" instance=ExtResource("19_snh6r")]
+layout_mode = 2
+
+[node name="ShopItem3" parent="Shop/Control/ScrollContainer/VBoxContainer" instance=ExtResource("19_snh6r")]
 layout_mode = 2
 
 [node name="Settings" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_ur14s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40576, 0)
-script = SubResource("GDScript_jev11")
 
-[node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenNotifier3D" parent="Player"]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Player"]
 aabb = AABB(-0.145542, -0.121197, -0.12335, 0.291084, 0.242394, 0.2467)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -643,7 +778,9 @@ volume_db = -10.0
 
 [connection signal="button_down" from="HUD/Control/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_down" from="HUD/Control/SettingsButton" to="." method="_on_settings_button_button_down"]
-[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
-[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="button_down" from="Shop/Control/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_up" from="Shop/Control/BackButton" to="." method="_on_back_button_button_up"]
+[connection signal="screen_entered" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="timeout" from="FlingTimer" to="." method="_on_fling_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

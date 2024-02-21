@@ -1,0 +1,353 @@
+[gd_scene load_steps=24 format=3 uid="uid://dso6moookllac"]
+
+[ext_resource type="Material" uid="uid://ccgkll0d0n38v" path="res://addons/kenney_prototype_tools/materials/orange/material_09.tres" id="1_pn1ht"]
+[ext_resource type="Script" path="res://player.gd" id="1_w1ecn"]
+[ext_resource type="Texture2D" uid="uid://bmqmxslnl4w8t" path="res://addons/kenney_particle_pack/star_04.png" id="2_dsj8v"]
+[ext_resource type="Script" path="res://scripts/trail3D.gd" id="3_1brf8"]
+[ext_resource type="ArrayMesh" uid="uid://5dhecpr3o3pd" path="res://assets/models/ball_meshes/neon_blue.obj" id="5_kiq8x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phumj"]
+friction = 0.2
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_akpo0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4lphj"]
+
+[sub_resource type="Animation" id="Animation_el3ex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:surface_material_override/0:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:surface_material_override/1:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.944663, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D:surface_material_override/1:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_pleyn"]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(0.75, 0.75, 0.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 3.24901),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:surface_material_override/0:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:surface_material_override/1:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.944663, 1, 1), Color(0, 0.945098, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MeshInstance3D:surface_material_override/1:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_givg0"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:surface_material_override/0:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3484k"]
+_data = {
+"RESET": SubResource("Animation_el3ex"),
+"die": SubResource("Animation_pleyn"),
+"idle": SubResource("Animation_givg0")
+}
+
+[sub_resource type="Gradient" id="Gradient_khfla"]
+offsets = PackedFloat32Array(0, 0.825581, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.521569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xuid1"]
+gradient = SubResource("Gradient_khfla")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o87we"]
+lifetime_randomness = 0.15
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_velocity_min = 1.0
+radial_velocity_max = 5.0
+gravity = Vector3(0, 0.1, 0)
+color_ramp = SubResource("GradientTexture1D_xuid1")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47m8q"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827451, 0.701961, 1)
+albedo_texture = ExtResource("2_dsj8v")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2k25m"]
+material = SubResource("StandardMaterial3D_47m8q")
+size = Vector2(0.5, 0.5)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_pnfky"]
+offsets = PackedFloat32Array(0.487298, 1)
+colors = PackedColorArray(1, 0.380392, 0, 0, 1, 0.45, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sl45d"]
+gradient = SubResource("Gradient_pnfky")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu6u4"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_sl45d")
+
+[sub_resource type="Curve" id="Curve_8l258"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.866568, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af42s"]
+resource_name = "Metal"
+metallic = 0.574286
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uioe1"]
+resource_name = "Neon"
+transparency = 1
+albedo_color = Color(0, 0.944663, 1, 1)
+metallic = 0.5
+
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("current_mesh", "current_animation_player")]
+physics_material_override = SubResource("PhysicsMaterial_phumj")
+continuous_cd = true
+script = ExtResource("1_w1ecn")
+current_mesh = NodePath("Skins/Default/MeshInstance3D")
+current_animation_player = NodePath("Skins/Default/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_akpo0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_4lphj")
+surface_material_override/0 = ExtResource("1_pn1ht")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3484k")
+}
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156784, -0.0871342, 0.00334549)
+visibility_range_fade_mode = 1
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_o87we")
+draw_pass_1 = SubResource("PlaneMesh_2k25m")
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.44482, 0)
+material_override = SubResource("StandardMaterial3D_mu6u4")
+script = ExtResource("3_1brf8")
+distance = 0.05
+segments = 25
+lifetime = 1.0
+base_width = 0.3
+width_profile = SubResource("Curve_8l258")
+
+[node name="Skins" type="Node3D" parent="."]
+
+[node name="Default" type="Node3D" parent="Skins"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Skins/Default"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("5_kiq8x")
+surface_material_override/0 = SubResource("StandardMaterial3D_af42s")
+surface_material_override/1 = SubResource("StandardMaterial3D_uioe1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Skins/Default"]
+libraries = {
+"": SubResource("AnimationLibrary_3484k")
+}
