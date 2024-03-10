@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d6v85cl58yea"]
+[gd_scene load_steps=13 format=3 uid="uid://d6v85cl58yea"]
 
 [ext_resource type="Script" path="res://scripts/bumper.gd" id="1_kdm3g"]
+[ext_resource type="AudioStream" uid="uid://c6inkwomkgsna" path="res://assets/sounds/bumper.mp3" id="2_armwc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hf2mp"]
 height = 0.990718
@@ -171,5 +172,8 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_ldkyw")
 }
+
+[node name="BumperAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_armwc")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

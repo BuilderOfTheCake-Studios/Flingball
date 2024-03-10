@@ -1,0 +1,143 @@
+[gd_scene load_steps=18 format=3 uid="uid://dso6moookllac"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_76nce"]
+[ext_resource type="Texture2D" uid="uid://bmqmxslnl4w8t" path="res://addons/kenney_particle_pack/star_04.png" id="2_7pym3"]
+[ext_resource type="Script" path="res://scripts/trail3D.gd" id="3_fedw6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phumj"]
+friction = 0.2
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_akpo0"]
+
+[sub_resource type="Gradient" id="Gradient_khfla"]
+offsets = PackedFloat32Array(0, 0.825581, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.521569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xuid1"]
+gradient = SubResource("Gradient_khfla")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o87we"]
+lifetime_randomness = 0.15
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_velocity_min = 1.0
+radial_velocity_max = 5.0
+gravity = Vector3(0, 0.1, 0)
+color_ramp = SubResource("GradientTexture1D_xuid1")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47m8q"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.827451, 0.701961, 1)
+albedo_texture = ExtResource("2_7pym3")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2k25m"]
+material = SubResource("StandardMaterial3D_47m8q")
+size = Vector2(0.5, 0.5)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_pnfky"]
+offsets = PackedFloat32Array(0.487298, 1)
+colors = PackedColorArray(1, 0.380392, 0, 0, 1, 0.45, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sl45d"]
+gradient = SubResource("Gradient_pnfky")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu6u4"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_sl45d")
+
+[sub_resource type="Curve" id="Curve_8l258"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.866568, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_okdli"]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_6unho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw5yl"]
+_data = {
+"RESET": SubResource("Animation_6unho"),
+"die": SubResource("Animation_okdli")
+}
+
+[node name="Player" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_phumj")
+continuous_cd = true
+script = ExtResource("1_76nce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_akpo0")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156784, -0.0871342, 0.00334549)
+visibility_range_fade_mode = 1
+emitting = false
+amount = 75
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_o87we")
+draw_pass_1 = SubResource("PlaneMesh_2k25m")
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.44482, 0)
+material_override = SubResource("StandardMaterial3D_mu6u4")
+script = ExtResource("3_fedw6")
+distance = 0.05
+segments = 25
+lifetime = 1.0
+base_width = 0.3
+width_profile = SubResource("Curve_8l258")
+
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yw5yl")
+}

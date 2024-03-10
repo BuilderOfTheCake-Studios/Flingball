@@ -11,10 +11,21 @@ config_version=5
 [application]
 
 config/name="Flingball"
-run/main_scene="res://world.tscn"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://assets/images/icon_128.png"
+
+[autoload]
+
+GodotPlayGameServices="*res://addons/GodotPlayGameServices/autoloads/godot_play_game_services.gd"
+SignInClient="*res://addons/GodotPlayGameServices/autoloads/sign_in_client.gd"
+PlayersClient="*res://addons/GodotPlayGameServices/autoloads/players_client.gd"
+AchievementsClient="*res://addons/GodotPlayGameServices/autoloads/achievements_client.gd"
+LeaderboardsClient="*res://addons/GodotPlayGameServices/autoloads/leaderboards_client.gd"
+SnapshotsClient="*res://addons/GodotPlayGameServices/autoloads/snapshots_client.gd"
+EventsClient="*res://addons/GodotPlayGameServices/autoloads/events_client.gd"
+Global="*res://scripts/global.gd"
 
 [debug]
 
@@ -36,6 +47,14 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 window/vsync/vsync_mode=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotPlayGameServices/plugin.cfg", "res://addons/admob/plugin.cfg")
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

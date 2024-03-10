@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b271mpvhpi0"]
 
-[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_yavgl"]
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://assets/tiles.tres" id="1_yavgl"]
 [ext_resource type="PackedScene" uid="uid://b67u8uekt6tjo" path="res://entities/crate.tscn" id="2_l8pdg"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="3_wlomp"]
 

@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Google Play Game Services Godot Plugin"
+config/description="Demo project to show the usage of the Godot Play Game Services plugin, for integration of the Google Play Games Services for android games.
+
+You will need to configure the game integrations in your Google Play Console in order for this demo to work properly."
+config/version="v1.0.0"
+config/tags=PackedStringArray("demo", "android", "google_play_games_services")
+run/main_scene="res://scenes/MainMenu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GodotPlayGameServices="*res://addons/GodotPlayGameServices/autoloads/godot_play_game_services.gd"
+SignInClient="*res://addons/GodotPlayGameServices/autoloads/sign_in_client.gd"
+AchievementsClient="*res://addons/GodotPlayGameServices/autoloads/achievements_client.gd"
+LeaderboardsClient="*res://addons/GodotPlayGameServices/autoloads/leaderboards_client.gd"
+PlayersClient="*res://addons/GodotPlayGameServices/autoloads/players_client.gd"
+SnapshotsClient="*res://addons/GodotPlayGameServices/autoloads/snapshots_client.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotPlayGameServices/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://android/": "gray",
+"res://scenes/": "green"
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

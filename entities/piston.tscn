@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8hhpsamnir4c"]
+[gd_scene load_steps=18 format=3 uid="uid://c8hhpsamnir4c"]
 
 [ext_resource type="Script" path="res://scripts/piston.gd" id="1_1uxwu"]
+[ext_resource type="AudioStream" uid="uid://b8e5f1od8y7fs" path="res://assets/sounds/piston.mp3" id="2_s6nqc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_afp1h"]
 points = PackedVector3Array(-1, -0.800457, -0.800117, -1, -0.800457, 0.799922, -1, 0.799366, -0.800117, -0.800117, -0.800457, -1, -0.213391, -5.69828, -0.213391, -0.800117, -0.800457, 1, -1, 0.799366, 0.799922, -0.213391, -5.69828, 0.213195, -0.800117, 1, -0.800117, -0.800117, 0.799366, -1, 0.799922, -0.800457, -1, 0.213195, -5.69828, -0.213391, 0.799922, -0.800457, 1, -0.800117, 0.799366, 1, -0.800117, 1, 0.799922, 0.213195, -5.69828, 0.213195, 0.799922, 1, -0.800117, 0.799922, 0.799366, -1, 1, -0.800457, -0.800117, 1, -0.800457, 0.799922, 0.799922, 0.799366, 1, 0.799922, 1, 0.799922, 1, 0.799366, -0.800117, 1, 0.799366, 0.799922)
@@ -194,6 +195,9 @@ autoplay = "RESET"
 [node name="PushTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="PistonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s6nqc")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

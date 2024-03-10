@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bit1gyobs5ghf"]
 
-[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_q64ei"]
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://assets/tiles.tres" id="1_q64ei"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_3d776"]
 [ext_resource type="PackedScene" uid="uid://cv8w2nnxfb0qk" path="res://entities/spikes.tscn" id="2_6yj57"]
 [ext_resource type="PackedScene" uid="uid://d6v85cl58yea" path="res://entities/bumper.tscn" id="3_re7c1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_islqt"]
-size = Vector3(1.46783, 1, 7.88193)
+size = Vector3(1.46783, 1, 7.99585)
 
 [node name="WorldSection1" type="Node3D"]
 
@@ -22,39 +22,39 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.99181)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46155, 0.957955, 0.714895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46155, 0.957955, 0.794607)
 shape = SubResource("BoxShape3D_islqt")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4539, 0.957955, 0.714895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4539, 0.957955, 0.764884)
 shape = SubResource("BoxShape3D_islqt")
 
 [node name="LinkMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.49688)
 
 [node name="Spikes" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.625, 1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.655031, 1)
 
 [node name="Spikes2" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.887022, 0.625, 1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.887022, 0.655031, 1)
 
 [node name="Spikes3" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.895406, 0.625, 1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.895406, 0.655031, 1)
 
 [node name="Spikes4" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.625, 6.79987)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.655031, 6.79987)
 
 [node name="Spikes5" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.887022, 0.625, 6.79987)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.887022, 0.655031, 6.79987)
 
 [node name="Spikes6" parent="." instance=ExtResource("2_6yj57")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.895406, 0.625, 6.79987)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.895406, 0.655031, 6.79987)
 
 [node name="Bumper" parent="." instance=ExtResource("3_re7c1")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.25, 0.75, 3.75)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.25, 0.592356, 3.75)
 
 [node name="Bumper2" parent="." instance=ExtResource("3_re7c1")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.25, 0.75, 3.75)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.25, 0.592356, 3.75)
 
 [node name="Coin" parent="." instance=ExtResource("2_3d776")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 3)

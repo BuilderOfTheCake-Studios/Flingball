@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyel82ouwdy3d"]
 
-[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_mqagr"]
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://assets/tiles.tres" id="1_mqagr"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="2_1k0nv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh8m"]

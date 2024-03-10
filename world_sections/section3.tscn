@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://df38sgwbv1wvc"]
 
-[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://tiles.tres" id="1_ycqhp"]
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://assets/tiles.tres" id="1_ycqhp"]
 [ext_resource type="PackedScene" uid="uid://du2xby7k36blq" path="res://entities/platform.tscn" id="2_mjl2d"]
 [ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="4_kd4dm"]
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ox4h3erw7s31"]
+
+[ext_resource type="MeshLibrary" uid="uid://bfuhut8o5tpfy" path="res://assets/tiles.tres" id="1_i50wb"]
+[ext_resource type="PackedScene" uid="uid://du2xby7k36blq" path="res://entities/platform.tscn" id="2_qoscb"]
+[ext_resource type="PackedScene" uid="uid://dmcnt6xlmek7j" path="res://entities/coin.tscn" id="3_4bnj6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_islqt"]
+size = Vector3(1.46783, 1, 2.00593)
+
+[node name="WorldSection10" type="Node3D"]
+
+[node name="StartingGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_i50wb")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(131064, 0, 655386, 131065, 0, 655386, 131064, 1, 655386, 131064, 13, 655386, 131064, 14, 655386, 131065, 14, 655386, 131065, 1, 655386, 131065, 13, 655386, 65542, 0, 655386, 65543, 0, 655386, 65542, 1, 655386, 65542, 13, 655386, 65542, 14, 655386, 65543, 14, 655386, 65543, 13, 655386, 65543, 1, 655386, 7, 0, 655389, 6, 0, 655389, 5, 0, 655389, 4, 0, 655389, 3, 0, 655389, 65528, 0, 655389, 65529, 0, 655389, 65530, 0, 655389, 65531, 0, 655389, 65532, 0, 655389, 65533, 0, 655389, 65534, 0, 655389, 65535, 0, 655389, 0, 0, 655389, 1, 0, 655389, 2, 0, 655389, 65529, 1, 655389, 5, 1, 655389, 6, 1, 655389, 3, 1, 655389, 2, 1, 655389, 1, 1, 655389, 0, 1, 655389, 65535, 1, 655389, 65534, 1, 655389, 65533, 1, 655389, 65532, 1, 655389, 6, 14, 655389, 5, 14, 655389, 4, 14, 655389, 3, 14, 655389, 2, 14, 655389, 1, 14, 655389, 0, 14, 655389, 65535, 14, 655389, 65534, 14, 655389, 65533, 14, 655389, 65532, 14, 655389, 65531, 14, 655389, 65530, 14, 655389, 65529, 14, 655389, 65528, 14, 655389, 7, 14, 655389, 6, 13, 29, 7, 13, 29, 7, 1, 655389, 65528, 1, 655389, 65528, 13, 29, 65529, 13, 29, 65530, 13, 29, 65531, 13, 29, 65532, 13, 29, 65533, 13, 29, 65534, 13, 29, 65535, 13, 29, 0, 13, 29, 1, 13, 29, 2, 13, 29, 3, 13, 29, 4, 13, 29, 5, 13, 29, 4, 1, 29, 65531, 1, 29, 65530, 1, 29, 4, 2, 29, 3, 2, 29, 2, 2, 29, 1, 2, 29, 0, 2, 29, 65535, 2, 29, 65534, 2, 29, 65533, 2, 29, 65532, 2, 29, 65531, 2, 29, 4, 12, 29, 3, 12, 29, 2, 12, 29, 1, 12, 29, 0, 12, 29, 65535, 12, 29, 65534, 12, 29, 65533, 12, 29, 65532, 12, 29, 65531, 12, 29, 65530, 12, 29, 65529, 12, 29, 65528, 12, 29, 5, 12, 29, 6, 12, 29, 7, 12, 29, 65530, 2, 29, 65529, 2, 29, 65528, 2, 29, 5, 2, 29, 6, 2, 29, 7, 2, 29, 131065, 12, 26, 131064, 12, 26, 65542, 12, 26, 65543, 12, 26, 65542, 2, 26, 65543, 2, 26, 131065, 2, 26, 131064, 2, 26)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.99181)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46155, 0.957955, -2.25383)
+shape = SubResource("BoxShape3D_islqt")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4539, 0.957955, -2.24111)
+shape = SubResource("BoxShape3D_islqt")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46155, 0.957955, 3.71187)
+shape = SubResource("BoxShape3D_islqt")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4539, 0.957955, 3.75387)
+shape = SubResource("BoxShape3D_islqt")
+
+[node name="LinkMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.49688)
+
+[node name="Coin" parent="." instance=ExtResource("3_4bnj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00723042, 0.602075, 2.75023)
+
+[node name="Coin2" parent="." instance=ExtResource("3_4bnj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00723042, 0.602075, 4.76898)
+
+[node name="Platform" parent="." instance=ExtResource("2_qoscb")]
+transform = Transform3D(0.331505, 0, 0, 0, 0.22, 0, 0, 0, 0.22, -0.0209929, 0.402075, 2.76748)
+distance = 2
+
+[node name="Platform2" parent="." instance=ExtResource("2_qoscb")]
+transform = Transform3D(0.331505, 0, 0, 0, 0.22, 0, 0, 0, 0.22, -0.0209929, 0.402075, 4.7449)
+distance = 2
+speed = 1.5

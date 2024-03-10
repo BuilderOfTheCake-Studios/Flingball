@@ -1,0 +1,144 @@
+:source-highlighter: rouge
+:imagesdir: ../../docs/images
+
+= The Demo Project
+Doc Writer <jacobibanez@jacobibanez.com>
+:toc:
+
+This folder is a Godot project that you can directly open in Godot 4.2 to see an implementation of the plugin in a real Godot game.
+
+IMPORTANT: To use this project, you have to uncompress the contents of the `addons.zip` file in the link:https://github.com/Iakobs/godot-play-game-services/releases[releases section] of the repository to the root folder of the project.
+
+== Directory Structure
+The demo project contains a `scenes` folder with all the `.tscn` and `.gd` files that you will need, everything is inside this folder.
+
+You have sub folders for every feature of the plugin, e.g. `achievements` for displaying the achievements of the game or `snapshots` for the save/load game functionalities.
+
+== Running the project
+IMPORTANT: Make sure that you are using version 4.2+ of Godot. This plugin is only for version 4.2 or higher.
+
+This is an android project with a custom build, so in order to run your game from the Godot editor, you have to install the build template first. Please, refer to the https://docs.godotengine.org/en/stable/tutorials/export/android_gradle_build.html[Godot docs] for further information.
+
+You also have to create an `Export Configuration` for Android. Refer to the https://github.com/Iakobs/godot-play-game-services#export-configuration[README] of the repository.
+
+Finally, you can not run the game as a normal game. Instead, you have to run it in an android device (real or emulated) via the `Remote Debug` button in the top right corner of the Godot editor.
+
+== Signing In
+The first thing the project does is checking if the user is authenticated, and if not, calls the `sign_in` method of the plugin.
+
+.MainMenu.gd
+[source,gdscript,linenums]
+----
+func _ready() -> void:
+	SignInClient.user_authenticated.connect(func(is_authenticated: bool): # <1>
+		if not is_authenticated:
+			SignInClient.sign_in()
+	)
+    # ... more code ...
+----
+
+<1> The plugin itself calls the `initialize()` method when creating the Autoloads, which checks if the user is authenticated and emits the `user_authenticated` signal, that's why we subscribe to it here.
+
+If the user is successfully signed in, you will see the Sign In animation displayed on top of the screen:
+
+image::screenshots/main_menu/main_menu.png[alt=Screenshot of the main menu with the Signed in animation displayed on top,title=Main Menu showing a user logged in.,width=298,align=center]
+
+IMPORTANT: If the user is not signed in, any of the following features *WON'T* work.
+
+== Screens
+
+Now you will find a description of all the screens that you can navigate from the main menu. You can always go back to the main menu with the `Back` button in every sub-screen.
+
+=== Achievements Screen
+image::screenshots/achievements/achievements_screen.png[alt=Screenshot of the achievements screen,title=The achievements screen.,width=298,align=center]
+
+In the achievements screen you will see a `Show Achievements` button and a scrollable list of the achievements of the game. Depending on the type of the achievement, you will see another button underneath every achievement to *reveal*, *unlock* or *increment* the achievement.
+
+The `Show Achievements` button opens a new window provided by Google with the list of achievements for the game, but you can only click on them to see a detailed description.
+
+image::screenshots/achievements/show_achievements.png[alt=Screenshot of the screen provided by google, with a list of achievements,title=The achievements screen provided by google.,width=298,align=center]
+
+Closing that window by swiping it down, you will be back at the achievements menu. The loading of the achievements inside the scrollable section, happens in the `Achievements.gd` script.
+
+.Achievements.gd
+[source,gdscript,linenums]
+----
+func _ready() -> void:
+	if _achievements_cache.is_empty():
+		AchievementsClient.load_achievements(true) # <1>
+	AchievementsClient.achievements_loaded.connect( # <2>
+		func cache_and_display(achievements: Array[AchievementsClient.Achievement]):
+			_achievements_cache = achievements
+			if not _achievements_cache.is_empty() and achievement_displays.get_child_count() == 0:
+				for achievement: AchievementsClient.Achievement in _achievements_cache: # <3>
+					var container := _achievement_display.instantiate() as Control
+					container.achievement = achievement
+					achievement_displays.add_child(container)
+	)
+    # ... more code ...
+----
+<1> If the cache is empty, we call the `load_achievements` method of the plugin.
+<2> We subscribe to the `achievemets_loaded` signal to receive the achievements.
+<3> For every achievement, we instantiate an `AchievementDisplay.tscn` file and we feed it the achievement. Then, we add the control as a child of the scrollable section.
+
+In the `AchievementDisplay.gd` script, you will find the code with the logic to *reveal*, *unlock* or *increment* a specific achievement, depending on its type and state.
+
+=== Leaderboards Screen
+image::screenshots/leaderboards/leaderboards_screen.png[alt=Screenshot of the leaderboards screen,title=The leaderboards screen.,width=298,align=center]
+
+This screen has a `Show Leaderboards` button at the top, and a scrollable list of the leaderboards of the game. Sames as with the achievements screen, the button will open a new screen provided by Google where you can see the leaderboards and interact with them.
+
+Every item in the scrollable list has options to:
+
+* Submit a score to the leaderboard.
+* Display a specific variant of that leaderboard, based on it's time span and collection type.
+
+The code that manages all of this behaviour, can be found in the `LeaderboardDisplay.gd` script.
+
+=== Players Screen
+image::screenshots/players/current_player.png[alt=Screenshot of the players screen,title=The players screen.,width=298,align=center]
+
+In this screen you can see information about players of Play Game Services.
+
+The `Search Players` button will open a new screen provided by google where you can find other players by their username. If you select them, they will appear in the Players Screen with a button to compare them. This button will open a new window provided by Google where you can compare this player to the signed in player, and also send an invitation to become friends.
+
+The following screenshots show the process:
+
+.Searching and comparing players.
+[frame=none,grid=none]
+|===
+|1. Searching a player|2. The player is displayed|3. Comparing the player
+a|image::screenshots/players/search_players.png[alt=Screenshot of the search players screen provided by google]
+a|image::screenshots/players/compare_player.png[alt=Screenshot of players screen, showing the searched player]
+a|image::screenshots/players/send_invite.png[alt=Screenshot of the screen provided by google to compare players]
+|===
+
+Under the `Search Players` button, you have a section with the current signed in player, and below it, another section with a list of the friends of the current signed in player.
+
+Again, same as with the Achievements screen and the Leaderboards screen, you have a `Players.gd` script that controls the screen, and a `PlayerDisplay.gd` script that manages the logic for every individual player card.
+
+=== Saved Games Screen
+image::screenshots/snapshots/save_game.png[alt=Screenshot of the saved games screen,title=The Saved Games screen.,width=298,align=center]
+
+This screen presents a simple menu to load and save games. To save a game, fill the form with a file name, a description and some data to save. When all fields are filled, the `Save Game` button will be enabled and you can save your game.
+
+Pressing the `Load Saved Games` will open a new screen provided by Google with the list of saved games for this game and player.
+
+image::screenshots/snapshots/show_saved_games.png[alt=Screenshot of screen provided by google, with a list of the saved games,title=The Saved Games screen provided by Google.,width=298,align=center]
+
+When you click on `Select`, the contents of the saved game will fill the forms in the previous screen.
+
+The code for this screen is all in the `Snapshots.gd` script.
+
+== Troubleshooting
+In order to ease the troubleshooting process, the main menu of the app uses the title at the top to display common error messages.
+
+=== Plugin not found
+If the plugin is not found, the title will display this text: #Plugin Not Found!#
+
+=== Signing in
+If the user is not signed in, the game automatically tries to sign them in with a retry mechanism.
+
+While trying to sign in, the title will display the #Trying to sign in!# text. After the maximum number of retries (5), if the user wasn't logged in, it will display this text: #Sign in attemps expired!#.
+
+In this case, you should look at the logs of the application. Doing so with Android Studio's logcat is easier. Use this regex to filter the logs: `package:com.jacobibanez.godot.test.game package:com.google.android.gms`
