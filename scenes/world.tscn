@@ -705,8 +705,11 @@ size = Vector3(1, 1, 7.31947)
 script = ExtResource("1_yvvro")
 world_sections = Array[PackedScene]([ExtResource("2_pmjrm"), ExtResource("3_t8lfd"), ExtResource("4_hrno3"), ExtResource("5_0ampn"), ExtResource("6_ajlcg"), ExtResource("7_cum1g"), ExtResource("8_focn4"), ExtResource("9_5myfo"), ExtResource("10_bt860"), ExtResource("11_28urv"), ExtResource("12_3l686"), ExtResource("13_2pbnw"), ExtResource("14_wdylq"), ExtResource("15_uhdgm"), ExtResource("16_bvnk8"), ExtResource("17_j3kpt"), ExtResource("18_uk3o6"), ExtResource("19_3ux1w"), ExtResource("20_r0na6"), ExtResource("21_yfdvs"), ExtResource("22_emdrt"), ExtResource("23_axg03"), ExtResource("24_byny8"), ExtResource("25_bx68g"), ExtResource("26_anuw3"), ExtResource("27_mxijq"), ExtResource("28_ngtqe"), ExtResource("29_nqlpp"), ExtResource("30_wvi06"), ExtResource("31_ww1jc")])
 <<<<<<< HEAD
+<<<<<<< HEAD
 camera_max_speed = 4.75
 camera_acceleration = 0.046
+=======
+>>>>>>> parent of a298ffd (Bug fixes and music)
 =======
 >>>>>>> parent of a298ffd (Bug fixes and music)
 
@@ -919,6 +922,10 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+offset_bottom = -0.000488281
+>>>>>>> parent of a298ffd (Bug fixes and music)
 =======
 offset_bottom = -0.000488281
 >>>>>>> parent of a298ffd (Bug fixes and music)
@@ -1080,7 +1087,11 @@ anchor_bottom = 1.0
 offset_left = -300.0
 offset_right = 300.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 offset_bottom = 4400.0
+=======
+offset_bottom = -0.000244141
+>>>>>>> parent of a298ffd (Bug fixes and music)
 =======
 offset_bottom = -0.000244141
 >>>>>>> parent of a298ffd (Bug fixes and music)
