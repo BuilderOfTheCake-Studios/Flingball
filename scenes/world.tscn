@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b60m80wythgvs" path="res://assets/images/arrow.svg" id="7_wye8p"]
 [ext_resource type="PackedScene" uid="uid://fjhlgnktpbl" path="res://world_sections/section7.tscn" id="8_focn4"]
 [ext_resource type="PackedScene" uid="uid://bio7rvvle5mwy" path="res://world_sections/section8.tscn" id="9_5myfo"]
+[ext_resource type="AudioStream" uid="uid://dvx6p2ip7x0u7" path="res://assets/sounds/Trance Music for Racing Game.mp3" id="9_no2iv"]
 [ext_resource type="PackedScene" uid="uid://bgx183eebtrno" path="res://world_sections/section9.tscn" id="10_bt860"]
 [ext_resource type="PackedScene" uid="uid://ox4h3erw7s31" path="res://world_sections/section10.tscn" id="11_28urv"]
 [ext_resource type="AudioStream" uid="uid://cmc24tstd2yvo" path="res://assets/sounds/sizzle.wav" id="11_slnwq"]
@@ -63,7 +64,6 @@
 [ext_resource type="Script" path="res://scripts/AdLayer.gd" id="38_v6dkm"]
 [ext_resource type="Texture2D" uid="uid://booqiekh1r33l" path="res://assets/images/leaderboard.svg" id="39_ked13"]
 [ext_resource type="Script" path="res://scripts/Settings.gd" id="53_3lq6p"]
-[ext_resource type="AudioStream" uid="uid://b861q74ixoy8k" path="res://assets/sounds/song6.mp3" id="61_86rjt"]
 
 [sub_resource type="Animation" id="Animation_vsh30"]
 length = 0.001
@@ -704,8 +704,11 @@ size = Vector3(1, 1, 7.31947)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_yvvro")
 world_sections = Array[PackedScene]([ExtResource("2_pmjrm"), ExtResource("3_t8lfd"), ExtResource("4_hrno3"), ExtResource("5_0ampn"), ExtResource("6_ajlcg"), ExtResource("7_cum1g"), ExtResource("8_focn4"), ExtResource("9_5myfo"), ExtResource("10_bt860"), ExtResource("11_28urv"), ExtResource("12_3l686"), ExtResource("13_2pbnw"), ExtResource("14_wdylq"), ExtResource("15_uhdgm"), ExtResource("16_bvnk8"), ExtResource("17_j3kpt"), ExtResource("18_uk3o6"), ExtResource("19_3ux1w"), ExtResource("20_r0na6"), ExtResource("21_yfdvs"), ExtResource("22_emdrt"), ExtResource("23_axg03"), ExtResource("24_byny8"), ExtResource("25_bx68g"), ExtResource("26_anuw3"), ExtResource("27_mxijq"), ExtResource("28_ngtqe"), ExtResource("29_nqlpp"), ExtResource("30_wvi06"), ExtResource("31_ww1jc")])
+<<<<<<< HEAD
 camera_max_speed = 4.75
 camera_acceleration = 0.046
+=======
+>>>>>>> parent of a298ffd (Bug fixes and music)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -915,6 +918,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+<<<<<<< HEAD
+=======
+offset_bottom = -0.000488281
+>>>>>>> parent of a298ffd (Bug fixes and music)
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1072,7 +1079,11 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_right = 300.0
+<<<<<<< HEAD
 offset_bottom = 4400.0
+=======
+offset_bottom = -0.000244141
+>>>>>>> parent of a298ffd (Bug fixes and music)
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1663,8 +1674,8 @@ wait_time = 0.8
 one_shot = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("61_86rjt")
-volume_db = -5.0
+stream = ExtResource("9_no2iv")
+volume_db = -10.0
 
 [node name="SpikeHitAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_slnwq")

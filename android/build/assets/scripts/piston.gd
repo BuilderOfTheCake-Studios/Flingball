@@ -15,17 +15,19 @@ func _on_area_3d_body_entered(body):
 		$AnimationPlayer.play("push")
 		if Global.settings["Sound on"]:
 			$PistonAudio.play()
+		print("Setting player_in_range to true")
 		player_in_range = true
 		$PushTimer.start()
 
 func _on_area_3d_body_exited(body):
 	if body.name == "Player":
 		player_in_range = false
+		print("EXITING AREA")
 
 func _on_push_timer_timeout():
 	print("Player in range:", player_in_range)
 	if player_in_range:
+		print("HERE 2")
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("push")
-		if Global.settings["Sound on"]:
-			$PistonAudio.play()
+		$PistonAudio.play()
