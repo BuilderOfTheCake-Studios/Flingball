@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://drbv3mw8v23kv"]
+
+[sub_resource type="Gradient" id="Gradient_khfla"]
+offsets = PackedFloat32Array(0, 0.825581, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.521569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xuid1"]
+gradient = SubResource("Gradient_khfla")
+
+[resource]
+lifetime_randomness = 0.15
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_velocity_min = 1.0
+radial_velocity_max = 5.0
+gravity = Vector3(0, 0.1, 0)
+color_ramp = SubResource("GradientTexture1D_xuid1")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.35

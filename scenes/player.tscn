@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dso6moookllac"]
+[gd_scene load_steps=16 format=3 uid="uid://dso6moookllac"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_76nce"]
 [ext_resource type="Texture2D" uid="uid://bmqmxslnl4w8t" path="res://addons/kenney_particle_pack/star_04.png" id="2_7pym3"]
+[ext_resource type="Material" uid="uid://drbv3mw8v23kv" path="res://assets/materials/player_particles.tres" id="2_logqh"]
 [ext_resource type="Script" path="res://scripts/trail3D.gd" id="3_fedw6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_phumj"]
@@ -9,28 +10,6 @@ friction = 0.2
 bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_akpo0"]
-
-[sub_resource type="Gradient" id="Gradient_khfla"]
-offsets = PackedFloat32Array(0, 0.825581, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.521569, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xuid1"]
-gradient = SubResource("Gradient_khfla")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o87we"]
-lifetime_randomness = 0.15
-direction = Vector3(0, 1, 0)
-initial_velocity_min = 0.1
-initial_velocity_max = 1.0
-angular_velocity_min = -100.0
-angular_velocity_max = 100.0
-radial_velocity_min = 1.0
-radial_velocity_max = 5.0
-gravity = Vector3(0, 0.1, 0)
-color_ramp = SubResource("GradientTexture1D_xuid1")
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47m8q"]
 transparency = 1
@@ -118,13 +97,12 @@ shape = SubResource("SphereShape3D_akpo0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156784, -0.0871342, 0.00334549)
 visibility_range_fade_mode = 1
 emitting = false
-amount = 75
+amount = 32
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 0.5
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_o87we")
+process_material = ExtResource("2_logqh")
 draw_pass_1 = SubResource("PlaneMesh_2k25m")
 
 [node name="Trail3D" type="MeshInstance3D" parent="."]

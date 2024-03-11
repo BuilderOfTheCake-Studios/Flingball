@@ -314,13 +314,13 @@ func _on_spikes_player_hit():
 		if Global.settings["Sound on"]:
 			$SpikeHitAudio.play()
 		var animation_player = player.current_animation_player
-		var particles = player.get_node("Particles")
+		#var particles = player.get_node("Particles")
 		player.linear_damp = 10
-		particles.emitting = true
-		animation_player.play("die")
+		#particles.emitting = true
+		#animation_player.play("die")
 		death_reset_timer.start()
 		death_reset_timer.timeout.connect(game_end)
-		player.play_death_animation()
+		#player.play_death_animation()
 		stats["Spikes hit"] += 1
 
 func _on_visible_on_screen_notifier_3d_screen_entered():

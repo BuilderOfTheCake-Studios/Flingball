@@ -704,8 +704,8 @@ size = Vector3(1, 1, 7.31947)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_yvvro")
 world_sections = Array[PackedScene]([ExtResource("2_pmjrm"), ExtResource("3_t8lfd"), ExtResource("4_hrno3"), ExtResource("5_0ampn"), ExtResource("6_ajlcg"), ExtResource("7_cum1g"), ExtResource("8_focn4"), ExtResource("9_5myfo"), ExtResource("10_bt860"), ExtResource("11_28urv"), ExtResource("12_3l686"), ExtResource("13_2pbnw"), ExtResource("14_wdylq"), ExtResource("15_uhdgm"), ExtResource("16_bvnk8"), ExtResource("17_j3kpt"), ExtResource("18_uk3o6"), ExtResource("19_3ux1w"), ExtResource("20_r0na6"), ExtResource("21_yfdvs"), ExtResource("22_emdrt"), ExtResource("23_axg03"), ExtResource("24_byny8"), ExtResource("25_bx68g"), ExtResource("26_anuw3"), ExtResource("27_mxijq"), ExtResource("28_ngtqe"), ExtResource("29_nqlpp"), ExtResource("30_wvi06"), ExtResource("31_ww1jc")])
-camera_max_speed = 5.0
-camera_acceleration = 0.06
+camera_max_speed = 4.75
+camera_acceleration = 0.046
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -742,9 +742,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 682.0
+offset_left = 82.0
 offset_top = 28.0
-offset_right = 710.0
+offset_right = 110.0
 offset_bottom = 366.0
 grow_horizontal = 0
 max_value = 1.0
@@ -819,9 +819,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 26.0
+offset_left = -274.0
 offset_top = 89.0
-offset_right = 574.0
+offset_right = 274.0
 offset_bottom = 339.999
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vfarg")
@@ -831,9 +831,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 338.0
+offset_left = 38.0
 offset_top = 287.0
-offset_right = 600.002
+offset_right = 300.002
 offset_bottom = 342.0
 grow_horizontal = 2
 rotation = 0.107279
@@ -895,9 +895,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 510.0
+offset_left = -90.0
 offset_top = 16.0
-offset_right = 583.0
+offset_right = -17.0
 offset_bottom = 88.0
 grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_fwx1t")
@@ -909,15 +909,12 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Shop" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Shop"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 600.0
-offset_bottom = 1100.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1073,8 +1070,9 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 600.0
-offset_bottom = 1100.0
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 4400.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
